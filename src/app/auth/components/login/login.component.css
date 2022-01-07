@@ -1,3 +1,7 @@
+#username-password-space{
+	padding-bottom: 15px;
+}
+
 @media (min-width: 768px) {
     .omb_row-sm-offset-3 div:first-child[class*="col-"] {
         margin-left: 25%;
@@ -9,18 +13,6 @@
     line-height: 300%;
 }
 	
-.omb_login .omb_socialButtons a {
-	color: white;
-	opacity:0.9;
-}
-.omb_login .omb_socialButtons a:hover {
-    color: white;
-	opacity:1;    	
-}
-.omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998;}
-.omb_login .omb_socialButtons .omb_btn-twitter {background: #00aced;}
-.omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
-
 
 .omb_login .omb_loginOr {
 	position: relative;
