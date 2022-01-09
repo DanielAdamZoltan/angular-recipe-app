@@ -1,0 +1,17 @@
+h1{
+    text-align: center;
+    color: white;
+}
+/* #search-header{
+    background-image: url(/src/static/images/header-background.jpg);   
+} */
+
+#searchsiteSearch-input{
+    width: 60%;
+}
+#search-bar{
+    padding-left: 30%;
+}
+body{
+    background-color: darkgray;
+}
