@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { ResetPasswordComponent } from './auth/components/reset-password/reset-password.component';
-import { HomeComponent } from './home/components/home.component';
+import { HomeComponent } from './home/components/home/home.component';
+
 import { PageNotFoundComponent } from './page-not-found/components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
