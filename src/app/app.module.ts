@@ -6,19 +6,17 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
-import { DataProtectionComponent } from './data-protection/components/data-protection/data-protection.component';
+import { DataProtectionModule } from './data-protection/data-protection.module';
 import { FooterModule } from './footer/footer.module';
 import { HeaderModule } from './header/header.module';
-import { PageNotFoundComponent } from './page-not-found/components/page-not-found/page-not-found.component';
-import { RecipeComponent } from './recipe/components/recipe/recipe.component';
+import { HomeModule } from './home/home.module';
+import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 import { RecipeModule } from './recipe/recipe.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    PageNotFoundComponent,
-    DataProtectionComponent,
     // HeaderComponent,
     // FooterComponent
   ],
@@ -30,7 +28,11 @@ import { RecipeModule } from './recipe/recipe.module';
     AuthModule,
     HeaderModule,
     FooterModule,
-    RecipeModule
+    RecipeModule,
+    DataProtectionModule,
+    HomeModule,
+    PageNotFoundModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

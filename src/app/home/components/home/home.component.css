@@ -2,6 +2,9 @@ h1{
     text-align: center;
     color: white;
 }
+#main-div{
+    background-color: grey;
+}
 /* #search-header{
     background-image: url(/src/static/images/header-background.jpg);   
 } */
