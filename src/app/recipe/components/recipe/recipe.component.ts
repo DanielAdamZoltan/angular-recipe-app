@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RecipeService } from '../../recipe.service';
+import { RecipeCard } from './recipeCard';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-recipe',
@@ -7,9 +10,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeComponent implements OnInit {
 
-  constructor() { }
+  private _recipeCards!: RecipeCard[];
+  private _searched: boolean = false;
 
-  ngOnInit(): void {
+  constructor(private recipeService: RecipeService) { }
+
+  ngOnInit(){
+    this.getRecipes();
+  }
+
+  get recipeCards(){
+     return this._recipeCards;
+  }
+
+  set recipeCards(recipeCards: RecipeCard[]){
+    this._recipeCards = recipeCards;
+  }
+
+
+  public getRecipes(): void{
+    if (!this._searched) {
+      this.recipeService.getRecipeCard().subscribe(
+      (response: RecipeCard[]) => {
+        this._recipeCards = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
+    }
+    
+  }
+
+  public tempMethod(): void{
+    const results: RecipeCard[] = [];
+    this._recipeCards = results;
   }
 
 }

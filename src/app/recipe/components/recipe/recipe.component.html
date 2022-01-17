@@ -1,1 +1,70 @@
-<p>recipe works!</p>
+<div class="container">
+    <div class="row">
+        <div *ngFor="let recipeCard of recipeCards" class="col-6 col-md-4 col-xl-4">
+            <a>
+                <div id="kép",style="background-image: url();">
+                    <button>valami gomb</button>
+                    <button>Mentés</button>
+                </div>
+                <div id="kategoria">
+                    <div class="coin", id="kis-ábra">
+                        <p>Tészták</p>
+                    </div>
+                </div>
+                <h4 id="recept-neve"></h4>
+                <div id="feltöltő">
+                    <img>
+                    <p>{{recipeCard?.uploader}}</p>
+                </div>
+                <div id="atributumok">
+                    <div id="elkeszitesi-ido">
+                        <span id="kis ábra"></span>
+                        <p>45 perc</p>
+                    </div>
+                    <div id="adag">
+                        <span id="kis ábra"></span>
+                        <p>4 adag</p>
+                    </div>
+                    <div id="nehezseg">
+                        <span id="kis ábra"></span>
+                        <p>Egyszerű</p>
+                    </div>
+                    <div id="arkategoria">
+                        <span id="kis ábra"></span>
+                        <p>átlagos</p>
+                    </div>
+                </div>
+
+            </a>
+        </div>
+    </div>
+</div>
+
+ <!-- Cards div
+ <div class="container" id="main-container">
+    <div class="row">
+      <div *ngFor="let recipeCard of recipeCards" class="col-md-6 col-xl-3">
+         <div class="card m-b-30">
+            <div class="card-body row">
+               <div class="col-6">
+                  <a href=""><img src="{{user?.imageUrl}}" alt="" class="img-fluid rounded-circle w-60"></a>
+               </div>
+               <div class="col-6 card-title align-self-center mb-0">
+                  <h5>{{user?.name}}</h5>
+                  <p class="m-0">{{user?.jobTitle}}</p>
+               </div>
+            </div>
+            <ul class="list-group list-group-flush">
+               <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Email : {{user?.email}}</li>
+               <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone : {{user?.phoneNumber}}</li>
+            </ul>
+            <div class="card-body">
+               <div class="float-right btn-group btn-group-sm">
+                  <a (click)="onOpenModal(user,'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                  <a (click)="onOpenModal(user,'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+               </div>
+            </div>
+         </div>
+      </div>
+    </div>
+ </div> -->
