@@ -1,6 +1,7 @@
 h1{
     text-align: center;
     color: white;
+    text-shadow: 2px 2px 4px #000000;
 }
 #main-div{
     background-color: grey;
@@ -14,7 +15,29 @@ h1{
 }
 #search-bar{
     padding-left: 30%;
+
 }
 body{
     background-color: darkgray;
+}
+#header-title{
+    padding-top: 10%;
+    padding-bottom: 2%;
+}
+#header-search-input{
+    /* padding-left: 30%; */
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+#header-search-complex{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2%;
+}
+h3{
+    text-align: center;
+    color: white;
+    /* text-shadow: 2px 2px 4px #000000; */
 }

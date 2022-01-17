@@ -25,13 +25,13 @@ import { RecipeModule } from './recipe/recipe.module';
     AppRoutingModule,
     // HttpClientModule,
     // FormsModule,
-    AuthModule,
+    // AuthModule,
+    // RecipeModule,
+    // DataProtectionModule,
+    // HomeModule,
+    // PageNotFoundModule,
     HeaderModule,
-    FooterModule,
-    RecipeModule,
-    DataProtectionModule,
-    HomeModule,
-    PageNotFoundModule
+    FooterModule
   
   ],
   providers: [],
