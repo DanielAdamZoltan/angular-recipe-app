@@ -12,8 +12,7 @@ import { FooterModule } from '../footer/footer.module';
   ],
   imports: [
     CommonModule,
-    RecipeModule,
-    FooterModule
+    RecipeModule
   ],
   exports: [
     HomeComponent

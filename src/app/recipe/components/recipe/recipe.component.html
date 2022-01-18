@@ -1,22 +1,25 @@
+<!-- 
+<p>recipe works!</p> -->
+
 <div class="container">
     <div class="row">
-        <div *ngFor="let recipeCard of recipeCards" class="col-6 col-md-4 col-xl-4">
+        <div class="col-6 col-md-4">
             <a>
-                <div id="kép",style="background-image: url();">
+                <div id="kép" class="contact-box center-version" style="background-image: url(https://images.unsplash.com/photo-1635264685671-739e75e73e0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80);">
                     <button>valami gomb</button>
                     <button>Mentés</button>
                 </div>
                 <div id="kategoria">
-                    <div class="coin", id="kis-ábra">
-                        <p>Tészták</p>
+                    <div id="kis-ábra">
+                        <h5 class="m-b-xs"><strong>Tészták</strong></h5>
                     </div>
                 </div>
                 <h4 id="recept-neve"></h4>
                 <div id="feltöltő">
-                    <img>
-                    <p>{{recipeCard?.uploader}}</p>
+                    kép
+                    <p></p>
                 </div>
-                <div id="atributumok">
+                <div id="atributumok" class="attribs">
                     <div id="elkeszitesi-ido">
                         <span id="kis ábra"></span>
                         <p>45 perc</p>
@@ -40,31 +43,35 @@
     </div>
 </div>
 
- <!-- Cards div
- <div class="container" id="main-container">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
     <div class="row">
-      <div *ngFor="let recipeCard of recipeCards" class="col-md-6 col-xl-3">
-         <div class="card m-b-30">
-            <div class="card-body row">
-               <div class="col-6">
-                  <a href=""><img src="{{user?.imageUrl}}" alt="" class="img-fluid rounded-circle w-60"></a>
-               </div>
-               <div class="col-6 card-title align-self-center mb-0">
-                  <h5>{{user?.name}}</h5>
-                  <p class="m-0">{{user?.jobTitle}}</p>
-               </div>
+        <div class="col-md-3">
+            <div class="contact-box center-version">
+                <a href="#profile.html">
+                    <img alt="image" class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                    <h3 class="m-b-xs"><strong>John Smith</strong></h3>
+        
+                    <div class="font-bold">Graphics designer</div>
+                    <address class="m-t-md">
+                        <strong>Twitter, Inc.</strong><br>
+                        795 Folsom Ave, Suite 600<br>
+                        San Francisco, CA 94107<br>
+                        <abbr title="Phone">P:</abbr> (123) 456-7890
+                    </address>
+        
+                </a>
+                <div class="contact-box-footer">
+                    <div class="m-t-xs btn-group">
+                        <a class="btn btn-xs btn-white"><i class="fa fa-phone"></i> Call </a>
+                        <a class="btn btn-xs btn-white"><i class="fa fa-envelope"></i> Email</a>
+                        <a class="btn btn-xs btn-white"><i class="fa fa-user-plus"></i> Follow</a>
+                    </div>
+                </div>
+        
             </div>
-            <ul class="list-group list-group-flush">
-               <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Email : {{user?.email}}</li>
-               <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone : {{user?.phoneNumber}}</li>
-            </ul>
-            <div class="card-body">
-               <div class="float-right btn-group btn-group-sm">
-                  <a (click)="onOpenModal(user,'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
-                  <a (click)="onOpenModal(user,'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
-               </div>
-            </div>
-         </div>
-      </div>
+        </div>
+        
+       
     </div>
- </div> -->
+</div>

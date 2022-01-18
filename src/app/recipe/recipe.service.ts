@@ -10,7 +10,7 @@ export class RecipeService {
 
   constructor(private http: HttpClient) { }
 
-  public getRecipeCard(): Observable<RecipeCard[]>{
-    return this.http.get<RecipeCard[]>(`${this.apiServerUrl}/home/all`);
-}
+//   public getRecipeCard(): Observable<RecipeCard[]>{
+//     return this.http.get<RecipeCard[]>(`${this.apiServerUrl}/home/all`);
+// }
 }

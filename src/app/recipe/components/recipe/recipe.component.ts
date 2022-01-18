@@ -10,41 +10,41 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class RecipeComponent implements OnInit {
 
-  private _recipeCards!: RecipeCard[];
-  private _searched: boolean = false;
+  // private _recipeCards!: RecipeCard[];
+  // private _searched: boolean = false;
 
-  constructor(private recipeService: RecipeService) { }
+  // constructor(private recipeService: RecipeService) { }
 
   ngOnInit(){
-    this.getRecipes();
+    // this.getRecipes();
   }
 
-  get recipeCards(){
-     return this._recipeCards;
-  }
+  // get recipeCards(){
+  //    return this._recipeCards;
+  // }
 
-  set recipeCards(recipeCards: RecipeCard[]){
-    this._recipeCards = recipeCards;
-  }
+  // set recipeCards(recipeCards: RecipeCard[]){
+  //   this._recipeCards = recipeCards;
+  // }
 
 
-  public getRecipes(): void{
-    if (!this._searched) {
-      this.recipeService.getRecipeCard().subscribe(
-      (response: RecipeCard[]) => {
-        this._recipeCards = response;
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    )
-    }
+  // public getRecipes(): void{
+  //   if (!this._searched) {
+  //     this.recipeService.getRecipeCard().subscribe(
+  //     (response: RecipeCard[]) => {
+  //       this._recipeCards = response;
+  //     },
+  //     (error: HttpErrorResponse) => {
+  //       alert(error.message);
+  //     }
+  //   )
+  //   }
     
-  }
+  // }
 
-  public tempMethod(): void{
-    const results: RecipeCard[] = [];
-    this._recipeCards = results;
-  }
+  // public tempMethod(): void{
+  //   const results: RecipeCard[] = [];
+  //   this._recipeCards = results;
+  // }
 
 }
