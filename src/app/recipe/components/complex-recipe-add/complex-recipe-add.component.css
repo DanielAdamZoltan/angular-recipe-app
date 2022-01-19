@@ -10,15 +10,15 @@ body {
 .nav>li>a.userdd {
     padding: 5px 15px
 }
-.userprofile {
+.recipe-card-maincontent {
 	width: 100%;
 	float: left;
 	clear: both;
-	margin: 40px auto
+	margin: 5px auto
 }
-.userprofile .userpic {
-	height: 100px;
-	width: 100px;
+.recipe-card-maincontent .recipe-card-pic {
+	height: 200px;
+	width: 200px;
 	clear: both;
 	margin: 0 auto;
 	display: block;
@@ -29,22 +29,65 @@ body {
 	-ms-box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, 0.15);
 	position: relative; 
 }
-.userprofile .userpic .userpicimg {
-	height: auto;
+.recipe-card-maincontent .recipe-card-pic .recipe-card-pic-img {
+	height: 100%;
 	width: 100%;
-	border-radius: 100%;
+	border-radius: 10%;
 }
-.username {
+.recipe-name {
 	font-weight: 400;
 	font-size: 20px;
 	line-height: 20px;
 	color: #000000;
 	margin-top: 20px;
+	margin-bottom: 20px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-.username+p {
+.category{
+	padding-top: 5px;
+	color:rgb(41, 40, 40);
+}
+.uploader{
+	color:rgb(41, 40, 40);
+	
+}
+.uploader-pic{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	display: inline-block;
+	margin-right: 10px;
+}
+.uploader-name{
+	display: inline-block;
+}
+.recipe-properties img{
+	width: 20px;
+	height: 20px;
+}
+.recipe-properties p{
+	color:rgb(41, 40, 40);
+}
+.recipe-properties-row {
+	display: flex;
+}
+.recipe-properties-box{
+	/* margin-left: 20px;
+	margin-right: 20px; */
+	margin: auto;
+	text-align: center;
+}
+.properties-box-img {
+	display: inline-block;
+	margin-right: 5px;
+}
+.properties-box-paragraph{
+	display: inline-block;
+	
+}
+.recipe-name+p {
 	color: #607d8b;
 	font-size: 13px;
 	line-height: 15px;
@@ -69,12 +112,12 @@ body {
 	-webkit-box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.15);
 	-ms-box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.15);
 }
-.userprofile.small {
+.recipe-card-maincontent.small {
 	width: auto;
 	clear: both;
 	margin: 0px auto;
 }
-.userprofile.small .userpic {
+.recipe-card-maincontent.small .recipe-card-pic {
 	height: 40px;
 	width: 40px;
 	margin: 0 10px 0 0;
@@ -87,17 +130,17 @@ body {
 	position: relative;
 	float: left;
 }
-.userprofile.small .textcontainer {
+.recipe-card-maincontent.small .textcontainer {
 	float: left;
 	max-width: 100px;
 	padding: 0
 }
-.userprofile.small .userpic .userpicimg {
+.recipe-card-maincontent.small .recipe-card-pic .recipe-card-pic-img {
 	min-height: 100%;
 	width: 100%;
 	border-radius: 100%;
 }
-.userprofile.small .username {
+.recipe-card-maincontent.small .username {
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 21px;
@@ -106,7 +149,7 @@ body {
 	float: left;
 	width: 100%;
 }
-.userprofile.small .username+p {
+.recipe-card-maincontent.small .recipe-name+p {
 	color: #607d8b;
 	font-size: 13px;
 	float: left;
@@ -137,16 +180,16 @@ body {
 	float: right;
 	margin: 22px;
 }
-.userprofile.social {
+.recipe-card-maincontent.social {
 	background: url(http://placehold.it/500x300) no-repeat top center;
 	background-size: 100%;
 	padding: 50px 0;
 	margin: 0
 }
-.userprofile.social .username {
+.recipe-card-maincontent.social .username {
 	color: #ffffff
 }
-.userprofile.social .username+p {
+.recipe-card-maincontent.social .username+p {
 	color: #ffffff;
 	opacity: 0.8
 }
@@ -236,12 +279,7 @@ body {
     line-height: 1.428571429;
 }
 
-.page-header.small {
-    position: relative;
-    line-height: 22px;
-    font-weight: 400;
-    font-size: 20px;
-}
+
 
 .favorite i {
     color: #eb3147;
@@ -277,20 +315,21 @@ body {
     color: #607d8b;
 }
 
+
 .panel-blue {
     color: #ffffff;
     background-color: #03A9F4;
 }
 
-.panel-red.userlist .username, .panel-green.userlist .username, .panel-yellow.userlist .username, .panel-blue.userlist .username {
+.panel-red.foodcard .username, .panel-green.foodcard .username, .panel-yellow.foodcard .username, .panel-blue.foodcard .username {
     color: #ffffff;
 }
 
-.panel-red.userlist p, .panel-green.userlist p, .panel-yellow.userlist p, .panel-blue.userlist p {
+.panel-red.foodcard p, .panel-green.foodcard p, .panel-yellow.foodcard p, .panel-blue.foodcard p {
     color: rgba(255, 255, 255, 0.8);
 }
 
-.panel-red.userlist p a, .panel-green.userlist p a, .panel-yellow.userlist p a, .panel-blue.userlist p a {
+.panel-red.foodcard p a, .panel-green.foodcard p a, .panel-yellow.foodcard p a, .panel-blue.foodcard p a {
     color: rgba(255, 255, 255, 0.8);
 }
 
