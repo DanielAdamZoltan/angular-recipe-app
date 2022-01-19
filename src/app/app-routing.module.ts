@@ -6,6 +6,7 @@ import { ResetPasswordComponent } from './auth/components/reset-password/reset-p
 import { HomeComponent } from './home/components/home/home.component';
 
 import { PageNotFoundComponent } from './page-not-found/components/page-not-found/page-not-found.component';
+import { ComplexRecipeAddComponent } from './recipe/components/complex-recipe-add/complex-recipe-add.component';
 import { EasyRecipeAddComponent } from './recipe/components/easy-recipe-add/easy-recipe-add.component';
 import { RecipeComponent } from './recipe/components/recipe/recipe.component';
 
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'reset-password', component: ResetPasswordComponent},
   {path: 'receptek', component: RecipeComponent},
   {path: 'mi-van-a-hutodben', component: EasyRecipeAddComponent},
+  {path: 'kereses', component: ComplexRecipeAddComponent},
   {path: '**', pathMatch: 'full', component: PageNotFoundComponent },
 ];
 
