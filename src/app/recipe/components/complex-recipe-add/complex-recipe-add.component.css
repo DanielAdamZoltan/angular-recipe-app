@@ -72,6 +72,8 @@ body {
 }
 .recipe-properties-row {
 	display: flex;
+	align-items: center;
+	vertical-align: middle;
 }
 .recipe-properties-box{
 	/* margin-left: 20px;
@@ -82,6 +84,8 @@ body {
 .properties-box-img {
 	display: inline-block;
 	margin-right: 5px;
+	/* align-items: center;
+	vertical-align: middle; */
 }
 .properties-box-paragraph{
 	display: inline-block;
