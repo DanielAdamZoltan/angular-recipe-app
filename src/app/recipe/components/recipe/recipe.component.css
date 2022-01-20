@@ -60,7 +60,7 @@ a{
 	left: 85%;
 	transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
-	background-color: #555;
+	background-color: rgb(0, 0, 0);
 	color: white;
 	font-size: 16px;
 	padding: 15px 15px;
@@ -75,7 +75,7 @@ a{
 	left: 60%;
 	transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
-	background-color: #555;
+	background-color: rgb(0, 0, 0);
 	color: white;
 	font-size: 16px;
 	padding: 15px 15px;
@@ -85,10 +85,10 @@ a{
   }
   
   .recipe-card-pic .btn:hover {
-	background-color: yellow;
+	background-color: #007b1f;
   }
   .recipe-card-pic .btn-second:hover{
-	background-color: yellow;
+	background-color: #007b1f;
   }
 
 
@@ -103,6 +103,9 @@ a{
 	border: solid #ccc5c5 1px;
 
 }
+#main-panel:hover{
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
 .recipe-name {
 	font-weight: 400;
 	font-size: 20px;
@@ -116,7 +119,12 @@ a{
 }
 .category{
 	padding-top: 5px;
-	color:rgb(41, 40, 40);
+	padding-bottom: 5px;
+	color: white;
+	background-color: #000000;
+	margin-left: 20px;
+	margin-right: 20px;
+	
 	
 }
 .uploader{

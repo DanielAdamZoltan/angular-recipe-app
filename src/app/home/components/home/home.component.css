@@ -1,4 +1,4 @@
-h1{
+ h1{
     text-align: center;
     color: white;
     text-shadow: 2px 2px 4px #000000;
@@ -6,9 +6,6 @@ h1{
 #main-div{
     background-color: grey;
 }
-/* #search-header{
-    background-image: url(/src/static/images/header-background.jpg);   
-} */
 
 #searchsiteSearch-input{
     width: 60%;
@@ -25,7 +22,6 @@ body{
     padding-bottom: 2%;
 }
 #header-search-input{
-    /* padding-left: 30%; */
     display:flex;
     align-items: center;
     justify-content: center;
@@ -39,5 +35,7 @@ body{
 h3{
     text-align: center;
     color: white;
-    /* text-shadow: 2px 2px 4px #000000; */
+    text-shadow: 2px 2px 4px #000000;
 }
+
+
