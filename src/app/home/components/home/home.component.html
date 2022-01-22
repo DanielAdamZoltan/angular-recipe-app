@@ -1,20 +1,23 @@
-<div id="main-div">
-    <div class="search-header w-100" id="search-header" style="background-image: url(https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80); height: 400px;">
-        <div id="header-title" class="container">
+<div class="main-div">
+    <div class="container">
+        <div class="panel-body text-center">
+        <div class="search-header">
             <h1>KERESS RECEPTRE VAGY HOZZÁVALÓRA</h1>
         </div>
         <form>
-            <div id="header-search-input"  class="container">
-            <input name="search" type="text" id="searchsiteSearch-input" class="form-control" value="" required="">
-        </div>
+            <span role="status" aria-live="polite" class="ui-helper-hidden-accessible">
+            </span>
+            <input type="text" id="form-Search" value=""  role="searchbox" class="input-box " placeholder="Ide írd amit keresel..." autocomplete="on">
+            <input type="submit" id="btn-search" class="btn btn-success" value="KERESÉS">
         </form>
-        
-        <div id="header-search-complex"  class="container">
-        <h3> <a href="/kereses" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Részletes kereső</a></h3>
-        </div>    
+             <div class="advanced-search">
+                <h3>
+                    <a href="/kereses" class="btn btn-success btn-lg active" id="advanced-search-button" role="button" aria-pressed="true">Részletes kereső</a>
+                </h3>
+            </div> 
+        </div>
     </div>
 </div>
-
 
 <app-recipe></app-recipe>
 

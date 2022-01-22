@@ -54,7 +54,7 @@ a{
   }
   
   /* Style the button and place it in the middle of the container/image */
-  .recipe-card-pic .btn {
+  .recipe-card-pic .btn-shop-cart {
 	position: absolute;
 	top: 15%;
 	left: 85%;
@@ -67,9 +67,10 @@ a{
 	border: none;
 	cursor: pointer;
 	border-radius: 50%;
+	
   }
 
-  .recipe-card-pic .btn-second {
+  .recipe-card-pic .btn-save {
 	position: absolute;
 	top: 15%;
 	left: 60%;
@@ -82,13 +83,15 @@ a{
 	border: none;
 	cursor: pointer;
 	border-radius: 50%;
+	/* background-image: url(/src/static/images/save-icon-original-30x30-black-green.png); */
   }
   
-  .recipe-card-pic .btn:hover {
+  .recipe-card-pic .btn-shop-cart:hover {
 	background-color: #007b1f;
   }
-  .recipe-card-pic .btn-second:hover{
+  .recipe-card-pic .btn-save:hover{
 	background-color: #007b1f;
+	/* background-image: url(/src/static/images/save-icon-original-30x30-green-black.png); */
   }
 
 
@@ -104,7 +107,7 @@ a{
 
 }
 #main-panel:hover{
-	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+	box-shadow: 0 3px 13px rgb(0 0 0 / 0.2);
 }
 .recipe-name {
 	font-weight: 400;
@@ -117,14 +120,35 @@ a{
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-.category{
-	padding-top: 5px;
-	padding-bottom: 5px;
+.recipe-card-category{
+	
 	color: white;
 	background-color: #000000;
 	margin-left: 20px;
 	margin-right: 20px;
+}
+.recipe-card-category a{
+	color: white;
+	background-color: black;
+}
+.recipe-card-category a:hover{
+	color: black;
+	background-color: white;
+}
+.recipe-card-category:hover{
+	color: black;
+	background-color: white;
+}
+.category{
+	margin-top: 5px;
+	/* margin-bottom: 5px; */
+	padding-top: 5px;
+	padding-bottom: 5px;
+	/* margin-top: -30px; */
 	
+	
+}
+.category:hover{
 	
 }
 .uploader{
@@ -188,4 +212,14 @@ a{
 .properties-box-paragraph{
 	display: inline-block;
 	
+}
+
+
+
+/* second version with article tag */
+
+.recipe-card-article{
+	height: 400px;
+	width: 200px;
+	padding: auto;
 }
