@@ -54,7 +54,7 @@ a{
   }
   
   /* Style the button and place it in the middle of the container/image */
-  .recipe-card-pic .btn-shop-cart {
+  /* .recipe-card-pic .btn-shop-cart {
 	position: absolute;
 	top: 15%;
 	left: 85%;
@@ -83,24 +83,28 @@ a{
 	border: none;
 	cursor: pointer;
 	border-radius: 50%;
-	/* background-image: url(/src/static/images/save-icon-original-30x30-black-green.png); */
-  }
+  } */
+
+  /* background-image: url(/src/static/images/save-icon-original-30x30-black-green.png); */
   
-  .recipe-card-pic .btn-shop-cart:hover {
+  /* .recipe-card-pic .btn-shop-cart:hover {
 	background-color: #007b1f;
   }
   .recipe-card-pic .btn-save:hover{
 	background-color: #007b1f;
-	/* background-image: url(/src/static/images/save-icon-original-30x30-green-black.png); */
-  }
+  } */
 
-
+/* background-image: url(/src/static/images/save-icon-original-30x30-green-black.png); */
 
 
 
 #entire-panel{
 	padding-top: 10px;
 	padding-bottom: 10px;
+
+
+	/* lehet nem kell */
+	position: relative;
 }
 #main-panel{
 	border: solid #ccc5c5 1px;
@@ -222,4 +226,64 @@ a{
 	height: 400px;
 	width: 200px;
 	padding: auto;
+}
+
+#entire-panel .recipe-card-pic-shop-cart{
+	position: absolute;
+	z-index: 9;
+	top: 7%;
+	left: 80%;
+}
+
+#entire-panel .btn-shop-cart {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	background-color: #007b1f;
+	/* color: white; */
+	font-size: 16px;
+	padding: 3px 3px;
+	border: none;
+	cursor: pointer;
+	border-radius: 50%;	
+  }
+
+#entire-panel .btn-shop-cart:hover {
+	background-color: black;
+	color: green;
+}
+  
+
+
+#entire-panel .recipe-card-pic-save{
+	position: absolute;
+	top: 7%;
+	z-index: 9;
+	left: 60%;
+}
+
+#entire-panel .btn-save {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	background-color: #007b1f;
+	/* color: white; */
+	font-size: 16px;
+	padding: 3px 3px;
+	border: none;
+	cursor: pointer;
+	border-radius: 50%;
+  }
+
+  #entire-panel .btn-save:hover{
+	background-color: black;
+	color: green;
+	/* background-image: url(/src/static/images/save-icon-original-30x30-green-black.png); */
+  }
+
+
+.filtration{
+	position: absolute;
+	top: 0;
+	right: 0;
 }

@@ -1,0 +1,14 @@
+.pagination a{
+    /* color: grey; */
+    color: rgb(19, 177, 19);
+}
+
+.pagination.pagination-rounded-flat .page-item .page-link,
+a {
+   border: none;
+   border-radius: 50px
+}
+.pagination a:hover{
+  color: rgb(0, 0, 0);
+  background-color: grey;
+}

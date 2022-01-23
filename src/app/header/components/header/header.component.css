@@ -1,4 +1,4 @@
-/* @media (min-width: 1200px){
+ /* @media (min-width: 1200px){
     #headerMenus, .nav-separator::after, #headerMenus .nav-separators .nav-item::after {
     content: "";
     border-left: 1px solid #fff;
@@ -7,8 +7,8 @@
     position: absolute;
     height: 16px;
 }
-}
-
+} */
+/*
 *, ::after, ::before {
     box-sizing: border-box;
 } */
@@ -17,3 +17,7 @@
     content: "|";
     color: red;    
 } */
+
+.nav-item{
+    padding-right: 5px;
+}

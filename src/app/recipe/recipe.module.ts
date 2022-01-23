@@ -6,6 +6,8 @@ import { RecipeComponent } from './components/recipe/recipe.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FiltrationComponent } from './components/filtration/filtration.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 
 
@@ -13,7 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     EasyRecipeAddComponent,
     ComplexRecipeAddComponent,
-    RecipeComponent
+    RecipeComponent,
+    FiltrationComponent,
+    PaginationComponent
   ],
   imports: [
     CommonModule,
