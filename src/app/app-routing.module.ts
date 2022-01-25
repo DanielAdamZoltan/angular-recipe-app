@@ -7,8 +7,10 @@ import { HomeComponent } from './home/components/home/home.component';
 
 import { PageNotFoundComponent } from './page-not-found/components/page-not-found/page-not-found.component';
 import { ComplexRecipeAddComponent } from './recipe/components/complex-recipe-add/complex-recipe-add.component';
-import { EasyRecipeAddComponent } from './recipe/components/easy-recipe-add/easy-recipe-add.component';
+import { FiltrationComponent } from './recipe/components/filtration/filtration.component';
+import { RecipeItemComponent } from './recipe/components/recipe-item/recipe-item.component';
 import { RecipeComponent } from './recipe/components/recipe/recipe.component';
+import { RecipeModule } from './recipe/recipe.module';
 
 const routes: Routes = [
 
@@ -17,7 +19,15 @@ const routes: Routes = [
   {path: 'regisztracio', component: RegisterComponent},
   {path: 'reset-password', component: ResetPasswordComponent},
   {path: 'receptek', component: RecipeComponent},
-  {path: 'mi-van-a-hutodben', component: EasyRecipeAddComponent},
+//   {path: 'receptek', component: RecipeModule,
+//   children: [
+//     {
+//       path: 'bolognai-spageti', component: RecipeItemComponent
+//     }
+//             ]
+// },
+  {path: 'receptek/bolognai-spageti', component: RecipeItemComponent},
+  {path: 'mi-van-a-hutodben', component: FiltrationComponent},
   {path: 'kereses', component: ComplexRecipeAddComponent},
   {path: '**', pathMatch: 'full', component: PageNotFoundComponent },
 ];

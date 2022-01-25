@@ -8,6 +8,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FiltrationComponent } from './components/filtration/filtration.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { SearchComponent } from './components/search/search.component';
+import { RecipeItemComponent } from './components/recipe-item/recipe-item.component';
+import { RecipeRoutingModule } from './recipe-routing.module';
 
 
 
@@ -17,18 +20,22 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     ComplexRecipeAddComponent,
     RecipeComponent,
     FiltrationComponent,
-    PaginationComponent
+    PaginationComponent,
+    SearchComponent,
+    RecipeItemComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RecipeRoutingModule
   ],
   exports: [
     EasyRecipeAddComponent,
     ComplexRecipeAddComponent,
-    RecipeComponent
+    RecipeComponent,
+    SearchComponent
   ]
 })
 export class RecipeModule { }
