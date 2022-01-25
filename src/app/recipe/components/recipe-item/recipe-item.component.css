@@ -1,0 +1,83 @@
+.container{
+    
+    width: 70%;
+    height: 70%;
+    position: relative;
+}
+h1{
+    color: rgb(7, 207, 7);
+}
+.carousel-indicators li{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+.carousel-control-prev-icon {
+    height: 50px;
+    width: 50px;
+    background-color: lightgray;
+    border-radius: 50%;
+}
+.carousel-control-next-icon{
+    height: 50px;
+    width: 50px;
+    background-color: lightgray;
+    border-radius: 50%;
+}
+
+.carousel-control-next-icon:hover{
+    background-color: forestgreen;
+    border-radius: 50%;
+    color: black;
+}
+.carousel-control-prev-icon:hover{
+    background-color: forestgreen;
+    border-radius: 50%;
+    color: black;
+}
+.recipe-properties img{
+	width: 20px;
+	height: 20px;
+}
+.row{
+    /* padding-left: 15%; */
+    /* padding-right: 15%; */
+    margin-top: 5px;
+    /* margin-left: 15px; */
+    /* margin-right: 15px; */
+}
+.col-sm{
+    /* padding-left: 15px; */
+    /* padding-right: 15px; */
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.col-sm p{
+    margin-right: 25px;
+    /* margin: auto; */
+}
+.recipe-properties{
+    border: solid 1px lightgray;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.properties-box-img {
+	display: inline-block;
+	margin-right: 5px;
+}
+.properties-box-paragraph{
+	display: inline-block;
+	
+}
+
+.table{
+    padding-left: 15%;
+    padding-right: 15%;
+}
+.thead{
+    background-color: gray;
+    color: white;
+}
+.table th{
+    text-align: left;
+}
