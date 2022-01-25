@@ -53,3 +53,16 @@ body{
     background-color: #fff;
     border: 1px solid #e1e1e1;
 }
+.data-protection{
+    color: black;
+    text-decoration: none;
+}
+#data-protection-container{
+    width: 40%;
+}
+.chechbox{
+    display: inline-block;
+}
+.text{
+    display: inline-block;
+}
