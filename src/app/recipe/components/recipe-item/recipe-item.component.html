@@ -1,9 +1,11 @@
-<div class="title text-center">
-   <h1>Bolognai spagetti</h1> 
+<br>
+<div class="container-title">
+   
 </div>
 
 
 <div class="container">
+  <h1>Bolognai spagetti</h1> 
     <div id="carouselExampleIndicators" class="carousel slide" data-interval="30000" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -29,6 +31,7 @@
 </div>
 
 <br>
+
 <div class="panel-body text-center">
 <div class="recipe-properties">
     <div class="row">
@@ -67,30 +70,56 @@
       </div>
     </div>
   </div>
+</div>
 
   <br>
 
-  <div class="table">
+  <div class="table-container">
     <table class="table">
-        <thead class="thead">
-          <tr>
-            <th colspan="2" scope="col">HOZZÁVALÓK</th>
+      <thead class="thead">
+        <tr>
+          <th colspan="2" scope="col">HOZZÁVALÓK</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let recipeTable of recipeTables">
+              <td> {{ recipeTable.quantity }} </td>
+              <td> {{ recipeTable.unit }} </td>
+              <td> {{ recipeTable.name }} </td>
           </tr>
-        </thead>
+      </tbody>
+  </table>
+
+
+
+    <!-- <table class="table">
+      <thead class="thead">
+        <tr>
+          <th colspan="2" scope="col">HOZZÁVALÓK</th>
+        </tr>
+      </thead>
         <tbody>
           <tr>
-            <td>Mark</td>
-            <td>Otto</td>
+            <td>1</td>
+            <td>csom</td>
+            <td>vaniliás pudinpor</td>
           </tr>
           <tr>
-            <td>Jacob</td>
-            <td>Thornton</td>
+            <td>2</td>
+            <td>dl</td>
+            <td>tej</td>
           </tr>
           <tr>
-            <td>Larry the Bird</td>
-            <td>@twitter</td>
+            <td>1</td>
+            <td>db</td>
+            <td>bionaracs</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>csom</td>
+            <td>leveles tészta</td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
   </div>
 

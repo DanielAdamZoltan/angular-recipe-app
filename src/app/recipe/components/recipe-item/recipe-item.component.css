@@ -1,10 +1,12 @@
 .container{
     
-    width: 70%;
-    height: 70%;
+    width: 40%;
+    height: 40%;
     position: relative;
+    right: 20%;
 }
 h1{
+    
     color: rgb(7, 207, 7);
 }
 .carousel-indicators li{
@@ -71,8 +73,9 @@ h1{
 }
 
 .table{
-    padding-left: 15%;
-    padding-right: 15%;
+    /* padding-left: 15%; */
+    /* padding-right: 15%; */
+    width: 60%;
 }
 .thead{
     background-color: gray;

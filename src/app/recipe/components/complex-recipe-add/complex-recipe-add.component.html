@@ -1,3 +1,103 @@
-<p>
-  complex recipe works!
-</p>
+<form>
+
+
+<div class="food-title">
+  <input type="text" class="form-control" id="recipe-title-input" aria-describedby="recipeText" placeholder="Név">
+</div>
+
+<div class="image-upload">
+  <button>Képfeltöltés</button>
+</div>
+
+<div class="characteristics">
+  <h2>Jellemzők</h2>
+  <div class="category">
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+      <option selected>Kategória</option>
+      <option value="1">aprósütemény</option>
+      <option value="2">befőttek</option>
+      <option value="3">bonbonok</option>
+    </select>
+  </div>
+  <div class="cuisine">
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+      <option selected>Konyha</option>
+      <option value="1">afrikai</option>
+      <option value="2">amerikai</option>
+      <option value="3">angol</option>
+    </select>
+  </div>
+  <div class="portion">
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+      <option selected>Adag</option>
+      <option value="1">1 főre</option>
+      <option value="2">2 főre</option>
+      <option value="3">3 főre</option>
+    </select>
+  </div>
+  <div class="difficulty">
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+      <option selected>Nehézség</option>
+      <option value="1">könyű</option>
+      <option value="2">közepes</option>
+      <option value="3">nehéz</option>
+    </select>
+  </div>
+  <div class="price">
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+      <option selected>Költéség</option>
+      <option value="1">nagyon olcsó</option>
+      <option value="2">olcsó</option>
+      <option value="3">megfizethető</option>
+    </select>
+  </div>
+</div>
+
+<div class="time">
+  <h2>Elkészítési idő</h2>
+  <input type="number">
+</div>
+
+<div class="part-of-the-day">
+  <h2>Mikor</h2>
+  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+  <label class="btn btn-outline-primary" for="btn-check-outlined">reggeli</label>
+  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+  <label class="btn btn-outline-primary" for="btn-check-outlined">tízorai</label>
+  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+  <label class="btn btn-outline-primary" for="btn-check-outlined">ebéd</label>
+  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+  <label class="btn btn-outline-primary" for="btn-check-outlined">uzsonna</label>
+  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+  <label class="btn btn-outline-primary" for="btn-check-outlined">vacsora</label>
+</div>
+
+<div class="season">
+  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+  <label class="btn btn-outline-primary" for="btn-check-outlined">tavasz</label>
+  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+  <label class="btn btn-outline-primary" for="btn-check-outlined">nyár</label>
+  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+  <label class="btn btn-outline-primary" for="btn-check-outlined">ősz</label>
+  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+  <label class="btn btn-outline-primary" for="btn-check-outlined">tél</label>
+</div>
+
+<div class="phases">
+  <div class="ingredients">
+    <h2>Hozzávalók</h2>
+    <br>
+    <input type="text" class="form-control" id="ingredient-input-text" aria-describedby="ingredientText" placeholder="Alapanyagok">
+    <input type="number" class="form-control" id="ingredient-input-number" aria-describedby="ingredientNumber" placeholder="mennyiség">
+    <div class="unit">
+      <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+        <option selected>Mértékegység</option>
+        <option value="1">ek</option>
+        <option value="2">ml</option>
+        <option value="3">dl</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+</form>
