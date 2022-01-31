@@ -6,13 +6,10 @@ import { ResetPasswordComponent } from './auth/components/reset-password/reset-p
 import { PrivacyPolicyComponent } from './data-protection/privacy-policy/privacy-policy.component';
 import { TermsOfUseComponent } from './data-protection/terms-of-use/terms-of-use.component';
 import { HomeComponent } from './home/components/home/home.component';
-
 import { PageNotFoundComponent } from './page-not-found/components/page-not-found/page-not-found.component';
 import { ComplexRecipeAddComponent } from './recipe/components/complex-recipe-add/complex-recipe-add.component';
-import { FiltrationComponent } from './recipe/components/filtration/filtration.component';
 import { RecipeItemComponent } from './recipe/components/recipe-item/recipe-item.component';
 import { RecipeComponent } from './recipe/components/recipe/recipe.component';
-import { RecipeModule } from './recipe/recipe.module';
 
 const routes: Routes = [
 
@@ -29,7 +26,7 @@ const routes: Routes = [
 //             ]
 // },
   {path: 'receptek/bolognai-spageti', component: RecipeItemComponent},
-  {path: 'mi-van-a-hutodben', component: FiltrationComponent},
+  {path: 'recept/bekuldes', component: ComplexRecipeAddComponent},
   {path: 'felhasznalasi-feltetelek', component: TermsOfUseComponent},
   {path: 'adatvedelmi-szabalyzat', component: PrivacyPolicyComponent},
   {path: 'kereses', component: ComplexRecipeAddComponent},

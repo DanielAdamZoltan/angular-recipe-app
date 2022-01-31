@@ -1,16 +1,17 @@
-<form>
+<form class="recipe-add-form">
 
 
 <div class="food-title">
   <input type="text" class="form-control" id="recipe-title-input" aria-describedby="recipeText" placeholder="Név">
 </div>
-
+<br>
 <div class="image-upload">
   <button>Képfeltöltés</button>
 </div>
-
+<br>
 <div class="characteristics">
   <h2>Jellemzők</h2>
+  <br>
   <div class="category">
     <select class="form-select form-select-sm" aria-label=".form-select-sm example">
       <option selected>Kategória</option>
@@ -19,6 +20,7 @@
       <option value="3">bonbonok</option>
     </select>
   </div>
+  <br>
   <div class="cuisine">
     <select class="form-select form-select-sm" aria-label=".form-select-sm example">
       <option selected>Konyha</option>
@@ -27,6 +29,7 @@
       <option value="3">angol</option>
     </select>
   </div>
+  <br>
   <div class="portion">
     <select class="form-select form-select-sm" aria-label=".form-select-sm example">
       <option selected>Adag</option>
@@ -35,6 +38,7 @@
       <option value="3">3 főre</option>
     </select>
   </div>
+  <br>
   <div class="difficulty">
     <select class="form-select form-select-sm" aria-label=".form-select-sm example">
       <option selected>Nehézség</option>
@@ -43,61 +47,121 @@
       <option value="3">nehéz</option>
     </select>
   </div>
+  <br>
   <div class="price">
     <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-      <option selected>Költéség</option>
+      <option selected>Költség</option>
       <option value="1">nagyon olcsó</option>
       <option value="2">olcsó</option>
       <option value="3">megfizethető</option>
     </select>
   </div>
 </div>
-
+<br>
+  
 <div class="time">
   <h2>Elkészítési idő</h2>
-  <input type="number">
+  <input type="number" class="form-control" id="recipe-time-input" aria-describedby="recipeTime" placeholder="Elkészítési idő">
+</div>
+<br>
+ 
+<div class="part-of-the-day">
+    <h2>Mikor</h2>
+    <input type="checkbox" class="btn-check" id="btn-check-breakfast" autocomplete="off">
+    <label class="btn btn-outline-success" for="btn-check-breakfast">reggeli</label>
+
+    <input type="checkbox" class="btn-check" id="btn-check-brunch" autocomplete="off">
+    <label class="btn btn-outline-success" for="btn-check-brunch">tízorai</label>
+
+  <input type="checkbox" class="btn-check" id="btn-check-lunch" autocomplete="off">
+  <label class="btn btn-outline-success" for="btn-check-lunch">ebéd</label>
+
+  <input type="checkbox" class="btn-check" id="btn-check-snack" autocomplete="off">
+  <label class="btn btn-outline-success" for="btn-check-snack">uzsonna</label>
+
+  <input type="checkbox" class="btn-check" id="btn-check-dinner" autocomplete="off">
+  <label class="btn btn-outline-success" for="btn-check-dinner">vacsora</label>
 </div>
 
-<div class="part-of-the-day">
-  <h2>Mikor</h2>
-  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-  <label class="btn btn-outline-primary" for="btn-check-outlined">reggeli</label>
-  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-  <label class="btn btn-outline-primary" for="btn-check-outlined">tízorai</label>
-  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-  <label class="btn btn-outline-primary" for="btn-check-outlined">ebéd</label>
-  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-  <label class="btn btn-outline-primary" for="btn-check-outlined">uzsonna</label>
-  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-  <label class="btn btn-outline-primary" for="btn-check-outlined">vacsora</label>
-</div>
 
 <div class="season">
-  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-  <label class="btn btn-outline-primary" for="btn-check-outlined">tavasz</label>
-  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-  <label class="btn btn-outline-primary" for="btn-check-outlined">nyár</label>
-  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-  <label class="btn btn-outline-primary" for="btn-check-outlined">ősz</label>
-  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-  <label class="btn btn-outline-primary" for="btn-check-outlined">tél</label>
+  <h2>Szezon</h2>
+  <input type="checkbox" class="btn-check" id="btn-check-spring" autocomplete="off">
+  <label class="btn btn-outline-success" for="btn-check-spring">tavasz</label>
+
+  <input type="checkbox" class="btn-check" id="btn-check-1-summer" autocomplete="off">
+  <label class="btn btn-outline-success" for="btn-check-1-summer">nyár</label>
+
+  <input type="checkbox" class="btn-check" id="btn-check-2-autumn" autocomplete="off">
+  <label class="btn btn-outline-success" for="btn-check-2-autumn">ősz</label>
+
+  <input type="checkbox" class="btn-check" id="btn-check-3-winter" autocomplete="off">
+  <label class="btn btn-outline-success" for="btn-check-3-winter">tél</label>
 </div>
 
+  <h2>Fázisok</h2>
 <div class="phases">
-  <div class="ingredients">
+  
+  <div class="ingredients" style="position: relative; padding-bottom: 200px;">
     <h2>Hozzávalók</h2>
     <br>
-    <input type="text" class="form-control" id="ingredient-input-text" aria-describedby="ingredientText" placeholder="Alapanyagok">
-    <input type="number" class="form-control" id="ingredient-input-number" aria-describedby="ingredientNumber" placeholder="mennyiség">
-    <div class="unit">
-      <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-        <option selected>Mértékegység</option>
-        <option value="1">ek</option>
-        <option value="2">ml</option>
-        <option value="3">dl</option>
-      </select>
+    <div class="ingredients-add-button" style="position:absolute; bottom:0; height: 200px; padding-top: 20px;">
+      <button (click)="addIngredientsDiv()">
+        <span>Hozzávaló hozzáadása</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+        </svg>
+      </button>
     </div>
+    <br>
+    <div class="ingredients-add-container" id="ingredients-add-container" *ngIf="ingredientsAddContainer">
+      <input type="text" class="form-control" id="ingredient-input-text" aria-describedby="ingredientText" placeholder="Alapanyagok">
+      <br>
+      <div class="unit">
+      <input type="number" class="form-control" id="ingredient-input-number" aria-describedby="ingredientNumber" placeholder="mennyiség" style="width: 50%;">
+        
+          <select class="form-select form-select-sm" id="ingredient-input-select" aria-label=".form-select-sm example" style="width: 50%;">
+            <option selected>Mértékegység</option>
+            <option value="1">ek</option>
+            <option value="2">ml</option>
+            <option value="3">dl</option>
+          </select>
+        </div>
+        <br>
+        <button (click)="hideIngredientsDiv()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+          </svg>
+        </button>
+        
+    </div>
+    
   </div>
+
+  <div class="Steps">
+    <h2 style="border-top: 1px solid lightgrey; padding-top: 30px;">Lépések</h2>
+    <br>
+    <div class="steps-add-button" style="padding-top: 20px;">
+      <button (click)="addStepsDiv()">
+        <span>További lépés hozzáadása</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+        </svg>
+      </button>
+    </div>
+    <div class="steps-add-container"  *ngIf="stepsAddContainer">
+      <input type="text" class="form-control" id="ingredient-input-text" aria-describedby="ingredientText" placeholder="Leírás">
+      <button (click)="hideStepsDiv()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+          <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+        </svg>
+      </button>
+    </div>
+    
+  </div>
+  <br>
 </div>
 
 </form>
