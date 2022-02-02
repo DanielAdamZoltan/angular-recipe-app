@@ -1,4 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { RecipeService } from '../../recipe.service';
+import { Ingredients } from './ingredients';
 
 @Component({
   selector: 'app-complex-recipe-add',
@@ -7,23 +10,51 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComplexRecipeAddComponent implements OnInit {
 
-  ingredientsAddContainer:boolean = false;
-  stepsAddContainer:boolean = false;
+  private _ingredientsAddContainer:boolean = false;
+  private _stepsAddContainer:boolean = false;
+  private _searched: boolean = false;
+  private _ingredients: Ingredients[];
 
   htmlElement:any = document.getElementById("ingredients-add-container");
 
-  constructor() { }
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit(): void {
   }
 
-  addIngredientsDiv(){
-    this.ingredientsAddContainer = true;
+  get searched(){
+    return this._searched;
+  }
+
+  get ingredientsAddContainer(){
+    return this._ingredientsAddContainer;
+  }
+
+  get stepsAddContainer(){
+    return this._stepsAddContainer;
+  }
+
+  set searched(searched: boolean){
+    this._searched = searched;
+  }
+
+  set ingredientsAddContainer(ingredientsAddContainer: boolean){
+    this._ingredientsAddContainer = ingredientsAddContainer;
+  }
+
+  set stepsAddContainer(stepsAddContainer: boolean){
+    this._stepsAddContainer = stepsAddContainer;
+  }
+
+
+
+  public addIngredientsDiv(){
+    this._ingredientsAddContainer = true;
    } 
 
-   addIngredientsDiv1(){
-     if(this.ingredientsAddContainer = false){
-      this.ingredientsAddContainer = true;
+   public addIngredientsDiv1(){
+     if(this._ingredientsAddContainer = false){
+      this._ingredientsAddContainer = true;
     }
     else{
       var sData = "";
@@ -37,16 +68,54 @@ export class ComplexRecipeAddComponent implements OnInit {
     
   
 
-  hideIngredientsDiv(){
-    this.ingredientsAddContainer = false;
+   public hideIngredientsDiv(){
+    this._ingredientsAddContainer = false;
   }
 
-  addStepsDiv(){
-    this.stepsAddContainer = true;
+  public addStepsDiv(){
+    this._stepsAddContainer = true;
   }
 
-  hideStepsDiv(){
-    this.stepsAddContainer = false;
+  public hideStepsDiv(){
+    this._stepsAddContainer = false;
   }
 
+  public getUsers(): void{
+    if (!this._searched) {
+      this.recipeService.getIngredients().subscribe(
+      (response: Ingredients[]) => {
+        this._ingredients = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
+    }
+    
+  }
+
+
+
+  public searchIngredients(key: string): void {
+
+    if (key=='') {
+        this._searched = false;
+    }else{
+      this._searched = true;
+    }
+    const results: Ingredients[] = [];
+    for (const ingredients of this._ingredients){
+      if (ingredients.name.toLowerCase().indexOf(key.toLowerCase()) !== -1
+     /* ||  user.email.toLowerCase().indexOf(key.toLowerCase()) != -1
+      ||  user.jobTitle.toLowerCase().indexOf(key.toLowerCase()) != -1
+      ||  user.phoneNumber.toLowerCase().indexOf(key.toLowerCase()) != -1*/
+      ) {
+        results.push(ingredients);
+      }
+    }
+    this._ingredients = results;
+    if (results.length === 0 || !key) {
+        this.getUsers();
+    }
+  }
 }

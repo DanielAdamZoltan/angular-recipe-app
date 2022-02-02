@@ -115,16 +115,29 @@
     </div>
     <br>
     <div class="ingredients-add-container" id="ingredients-add-container" *ngIf="ingredientsAddContainer">
-      <input type="text" class="form-control" id="ingredient-input-text" aria-describedby="ingredientText" placeholder="Alapanyagok">
+      <input type="search" 
+      (ngModelChange)="searchIngredients(key.value)"
+       #key="ngModel" ngModel name="key" id="searchIngredients"
+          class="form-control mr-sm-2" aria-describedby="ingredientText" placeholder="Alapanyagok" required>
       <br>
       <div class="unit">
       <input type="number" class="form-control" id="ingredient-input-number" aria-describedby="ingredientNumber" placeholder="mennyiség" style="width: 50%;">
         
           <select class="form-select form-select-sm" id="ingredient-input-select" aria-label=".form-select-sm example" style="width: 50%;">
             <option selected>Mértékegység</option>
-            <option value="1">ek</option>
-            <option value="2">ml</option>
-            <option value="3">dl</option>
+            <option value="g">g</option>
+            <option value="dkg">dkg</option>
+            <option value="kg">kg</option>
+            <option value="ml">l</option>
+            <option value="dl">ml</option>
+            <option value="l">dl</option>
+            <option value="csipet">csipet</option>
+            <option value="késhegynyi">késhegynyi</option>
+            <option value="kávéskanál">kávéskanál</option>
+            <option value="teáskanál">teáskanál</option>
+            <option value="evőkanál">evőkanál</option>
+            <option value="csepp">csepp</option>
+            <option value="izlés szerint">izlés szerint</option>
           </select>
         </div>
         <br>

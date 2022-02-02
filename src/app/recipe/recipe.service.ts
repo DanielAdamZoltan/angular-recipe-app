@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { RecipeCard } from './components/recipe/recipeCard';
 import {Observable} from 'rxjs';
+import { Ingredients } from './components/complex-recipe-add/ingredients';
 
 @Injectable({ providedIn: 'root'})
 export class RecipeService {
@@ -12,10 +13,13 @@ export class RecipeService {
 
   public getRecipeCard(): Observable<RecipeCard[]>{
     return this.http.get<RecipeCard[]>(`${this.apiServerUrl}/home/all`);
-
-    public addUser(user: User): Observable<User>{
-      return this.http.post<User>(`${this.apiServerUrl}/user/add`, user);
   }
+  public getIngredients(): Observable<Ingredients[]>{
+    return this.http.get<Ingredients[]>(`${this.apiServerUrl}/ingredients/all`);
+}
+  //   public addUser(user: User): Observable<User>{
+  //     return this.http.post<User>(`${this.apiServerUrl}/user/add`, user);
+  // }
 
   // public updateUser(user: User): Observable<User>{
   //     return this.http.put<User>(`${this.apiServerUrl}/user/update`, user);
@@ -24,5 +28,5 @@ export class RecipeService {
   // public deleteUser(userId: number): Observable<void>{
   //     return this.http.delete<void>(`${this.apiServerUrl}/user/delete/${userId}`);
   // }
-}
+
 }
