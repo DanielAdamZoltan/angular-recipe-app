@@ -115,16 +115,23 @@
     </div>
     <br>
     <div class="ingredients-add-container" id="ingredients-add-container" *ngIf="ingredientsAddContainer">
-      <input type="search" 
+      <!-- <input type="search" 
       (ngModelChange)="searchIngredients(key.value)"
        #key="ngModel" ngModel name="key" id="searchIngredients" [(ngModel)]="searchText"
-          class="form-control mr-sm-2" aria-describedby="ingredientText" placeholder="Alapanyagok" required>
+          class="form-control mr-sm-2" aria-describedby="ingredientText"
+           placeholder="Alapanyagok" required> -->
+
+           <input type="search" 
+      (ngModelChange)="searchIngredients(key.value)"
+       #key="ngModel" ngModel name="key" id="searchIngredients"
+          class="form-control mr-sm-2" aria-describedby="ingredientText"
+           placeholder="Alapanyagok" required>
       <br>
-      <div class="search-result">
+      <!-- <div class="search-result">
         <ul *ngFor="let data of dataset | filter: searchText">
           <li>{{data}}</li>
         </ul>
-      </div>
+      </div> -->
       <div class="unit">
       <input type="number" class="form-control" id="ingredient-input-number" aria-describedby="ingredientNumber" placeholder="mennyiség" style="width: 50%;">
         
