@@ -14,12 +14,21 @@ export class ComplexRecipeAddComponent implements OnInit {
   private _stepsAddContainer:boolean = false;
   private _searched: boolean = false;
   private _ingredients: Ingredients[];
+  private _dataset = ['Alma', 'körte', 'dió', 'csirke', 'hurka', 'disznó', 'annanász'];
 
   htmlElement:any = document.getElementById("ingredients-add-container");
 
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit(): void {
+  }
+
+  get dataset(){
+    return this._dataset;
+  }
+
+  set dataset(dataset){
+    this._dataset = dataset;
   }
 
   get searched(){
