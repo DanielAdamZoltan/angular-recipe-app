@@ -13,20 +13,32 @@
   <h2>Jellemzők</h2>
   <br>
   <div class="category">
-    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+    <!-- <select class="form-select form-select-sm" aria-label=".form-select-sm example">
       <option selected>Kategória</option>
       <option value="1">aprósütemény</option>
       <option value="2">befőttek</option>
       <option value="3">bonbonok</option>
+    </select> -->
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+      <option disabled selected value="null">Kategória</option>
+      <option *ngFor="let foodCategory of foodCategories" [value]="foodCategory.name">
+        {{foodCategory.name}}
+      </option>
     </select>
   </div>
   <br>
   <div class="cuisine">
-    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+    <!-- <select class="form-select form-select-sm" aria-label=".form-select-sm example">
       <option selected>Konyha</option>
       <option value="1">afrikai</option>
       <option value="2">amerikai</option>
       <option value="3">angol</option>
+    </select> -->
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+      <option disabled selected value="null">Konyha</option>
+      <option *ngFor="let cuisine of cuisines" [value]="cuisine.name">
+        {{cuisine.name}}
+      </option>
     </select>
   </div>
   <br>
@@ -36,6 +48,15 @@
       <option value="1">1 főre</option>
       <option value="2">2 főre</option>
       <option value="3">3 főre</option>
+      <option value="4">4 főre</option>
+      <option value="5">5 főre</option>
+      <option value="6">6 főre</option>
+      <option value="7">7 főre</option>
+      <option value="8">8 főre</option>
+      <option value="9">9 főre</option>
+      <option value="10">10 főre</option>
+      <option value="11">11 főre</option>
+      <option value="12">12 főre</option>
     </select>
   </div>
   <br>
@@ -54,6 +75,7 @@
       <option value="1">nagyon olcsó</option>
       <option value="2">olcsó</option>
       <option value="3">megfizethető</option>
+      <option value="3">drága</option>
     </select>
   </div>
 </div>
@@ -115,23 +137,34 @@
     </div>
     <br>
     <div class="ingredients-add-container" id="ingredients-add-container" *ngIf="ingredientsAddContainer">
-      <!-- <input type="search" 
-      (ngModelChange)="searchIngredients(key.value)"
-       #key="ngModel" ngModel name="key" id="searchIngredients" [(ngModel)]="searchText"
+      <input type="search" 
+      (ngModelChange)="searchIngredients(key.value)" #key="ngModel" ngModel name="key" id="searchIngredients" [(ngModel)]="searchText"
           class="form-control mr-sm-2" aria-describedby="ingredientText"
-           placeholder="Alapanyagok" required> -->
+           placeholder="Alapanyagok" required>
 
-           <input type="search" 
+           <!-- <input type="search" 
       (ngModelChange)="searchIngredients(key.value)"
        #key="ngModel" ngModel name="key" id="searchIngredients"
           class="form-control mr-sm-2" aria-describedby="ingredientText"
-           placeholder="Alapanyagok" required>
+           placeholder="Alapanyagok" required> -->
+
+           <!-- <input type="search" 
+       id="searchIngredients"
+          class="form-control mr-sm-2" aria-describedby="ingredientText"
+           placeholder="Alapanyagok" required> -->
       <br>
+      <div class="search-result">
+        <ul *ngFor="let ingredient of ingredients">
+          <li>{{ingredient.name}}</li>
+        </ul>
+      </div>
+
       <!-- <div class="search-result">
-        <ul *ngFor="let data of dataset | filter: searchText">
-          <li>{{data}}</li>
+        <ul *ngFor="let ingredient of ingredients | filter: searchText">
+          <li>{{ingredient.name}}</li>
         </ul>
       </div> -->
+
       <div class="unit">
       <input type="number" class="form-control" id="ingredient-input-number" aria-describedby="ingredientNumber" placeholder="mennyiség" style="width: 50%;">
         
