@@ -5,13 +5,7 @@
     <p class="text-muted mb-4">A regisztráció kevesebb mint egy percet vesz igénybe, de teljes ellenőrzést biztosít receptjei felett.</p>
     <form class="needs-validation" novalidate="">
         <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label for="reg-email">E-mail cím</label>
-                    <input class="form-control" type="email" required="" id="reg-email">
-                    <div class="invalid-feedback">Kérjük, érvényes e-mail címet adjon meg!</div>
-                </div>
-            </div>
+            
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="reg-ln">Vezeték Név</label>
@@ -28,6 +22,15 @@
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
+                    <label for="reg-email">E-mail cím</label>
+                    <input class="form-control" type="email" required="" id="reg-email">
+                    <div class="invalid-feedback">Kérjük, érvényes e-mail címet adjon meg!</div>
+                    <div class="information">Betűket, számokat és pontokat használhat</div>
+                </div>
+            </div>
+            
+            <div class="col-sm-6">
+                <div class="form-group">
                     <label for="reg-password">Jelszó</label>
                     <input class="form-control" type="password" required="" id="reg-password">
                     <div class="invalid-feedback">Kérjük, írja be a jelszót!</div>
@@ -38,6 +41,13 @@
                     <label for="reg-password-confirm">Jelszó Megerősítése</label>
                     <input class="form-control" type="password" required="" id="reg-password-confirm">
                     <div class="invalid-feedback">A jelszavak nem egyeznek!</div>
+                    <div class="information">Legalább 8 karaktert használjon, és szerepeljenek köztük betűk, számok és szimbólumok is</div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="checkbox" class="btn-check" id="btn-check-breakfast" autocomplete="off">
+                    <label class="btn btn-outline-success" for="btn-check-breakfast">Jelszó megjelenítése</label>
                 </div>
             </div>
             
@@ -64,7 +74,9 @@
                 </p>
                 <!-- </div> -->
         </div>
-        
+        <div class="text-left">
+            <button class="btn btn-secondary" type="button">Bejelentkezés</button>
+        </div>
         <div class="text-right">
             <button class="btn btn-primary" type="submit">Regisztráció</button>
         </div>

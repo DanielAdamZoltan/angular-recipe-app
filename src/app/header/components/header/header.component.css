@@ -21,3 +21,42 @@
 .nav-item{
     padding-right: 5px;
 }
+
+
+/* utolag modositva inenn */
+body{
+    background-color: #3e3e3e;
+    color: white;
+}
+select{
+    background-color: #3e3e3e;
+    color: yellow;
+}
+#languageSelectDiv{
+    /*padding-left: 150px;*/
+    /*padding-right: 200px;*/
+    float: right;
+    width: 50px;
+    margin-left: auto;
+    margin-right: 100px;
+
+}
+#languageSelectorInside{
+    width: 60px;
+    min-width: 50px;
+    max-width: 80px;
+    text-align: center;
+    horiz-align: center;
+    vertical-align: center;
+}
+#cookie{
+    horiz-align: center;
+}
+
+@media all and (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu{ display: none; }
+    .navbar .nav-item:hover .nav-link{   }
+    .navbar .nav-item:hover .dropdown-menu{ display: block; }
+    .navbar .nav-item .dropdown-menu{ margin-top:0; }
+}
+
