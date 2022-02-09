@@ -11,7 +11,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { SearchComponent } from './components/search/search.component';
 import { RecipeItemComponent } from './components/recipe-item/recipe-item.component';
 import { RecipeRoutingModule } from './recipe-routing.module';
-import { FilterPipe } from './components/complex-recipe-add/filter.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 

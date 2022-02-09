@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RecipeService } from '../../recipe.service';
+import { RecipeService } from '../../services/recipe.service';
 import { RecipeCard } from './recipeCard';
 import { HttpErrorResponse } from '@angular/common/http';
 

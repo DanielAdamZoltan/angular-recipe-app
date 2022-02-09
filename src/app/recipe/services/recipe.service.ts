@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpEvent, HttpRequest} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { RecipeCard } from './components/recipe/recipeCard';
+import { RecipeCard } from '../components/recipe/recipeCard';
 import {Observable} from 'rxjs';
-import { Ingredient } from './components/complex-recipe-add/ingredient';
-import { FoodCategory } from './components/complex-recipe-add/food-category';
-import { Cuisine } from './components/complex-recipe-add/cuisine';
+import { Ingredient } from '../models/ingredient';
+import { FoodCategory } from '../models/food-category';
+import { Cuisine } from '../models/cuisine';
 
 @Injectable({ providedIn: 'root'})
 export class RecipeService {
@@ -14,6 +14,20 @@ export class RecipeService {
   // constructor(){}
 
   constructor(private http: HttpClient) { }
+
+  public upload(file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+    const request = new HttpRequest('POST',`${this.apiServerUrl}/upload`, formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+    return this.http.request(request);
+  }
+
+  getFiles(): Observable<any> {
+    return this.http.get(`${this.apiServerUrl}/files`);
+  }
 
   public getFoodCategory(): Observable<FoodCategory[]>{
     return this.http.get<FoodCategory[]>(`${this.apiServerUrl}/category/all`);

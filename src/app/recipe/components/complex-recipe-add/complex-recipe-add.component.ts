@@ -1,9 +1,10 @@
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { RecipeService } from '../../recipe.service';
-import { Cuisine } from './cuisine';
-import { FoodCategory } from './food-category';
-import { Ingredient } from './ingredient';
+import { RecipeService } from '../../services/recipe.service';
+import { Cuisine } from '../../models/cuisine';
+import { FoodCategory } from '../../models/food-category';
+import { Ingredient } from '../../models/ingredient';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-complex-recipe-add',
@@ -24,15 +25,40 @@ export class ComplexRecipeAddComponent implements OnInit {
   private _searchText: string;
   private _dataset = ['Alma', 'körte', 'dió', 'csirke', 'hurka', 'disznó', 'annanász'];
 
-  htmlElement:any = document.getElementById("ingredients-add-container");
+  private _selectedFiles: FileList;
+  private _currentFile: File;
+  private _progress = 0;
+  private _message = '';
+  private _fileInfos: Observable<any>;
 
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit(): void {
     this.getFoodCategories();
     this.getCuisines();
+    this.fileInfos = this.recipeService.getFiles();
   }
- 
+
+  get selectedFiles(){
+    return this._selectedFiles;
+  }
+
+  get currentFile(){
+    return this._currentFile;
+  }
+
+  get progress(){
+    return this._progress;
+  }
+
+  get message(){
+    return this._message;
+  }
+
+  get fileInfos(){
+    return this._fileInfos;
+  }
+
   get searchText(){
     return this._searchText;
   }
@@ -95,6 +121,53 @@ export class ComplexRecipeAddComponent implements OnInit {
 
   set searchText(searchText: string){
     this._searchText = searchText;
+  }
+
+  set selectedFiles(selectedFiles: FileList){
+    this._selectedFiles = selectedFiles;
+  }
+
+  set currentFile(currentFile: File){
+    this._currentFile = currentFile;
+  }
+
+  set progress(progress: number){
+    this._progress = progress;
+  }
+
+  set message(message: string){
+    this._message = message;
+  }
+
+  set fileInfos(fileInfos: Observable<any>){
+    this._fileInfos = fileInfos;
+  }
+
+
+  
+
+  public selectFile(event: any){
+    this.selectFile = event.target.files;
+  }
+
+  upload() {
+    this.progress = 0;
+    this.currentFile = this.selectedFiles.item(0);
+    this.recipeService.upload(this.currentFile).subscribe(
+      event => {
+        if (event.type === HttpEventType.UploadProgress) {
+          this.progress = Math.round(100 * event.loaded / event.total);
+        } else if (event instanceof HttpResponse) {
+          this.message = event.body.message;
+          this.fileInfos = this.recipeService.getFiles();
+        }
+      },
+      err => {
+        this.progress = 0;
+        this.message = 'Could not upload the file!';
+        this.currentFile = undefined;
+      });
+    this.selectedFiles = undefined;
   }
 
 
