@@ -2,7 +2,7 @@ import { HttpErrorResponse, HttpEvent, HttpEventType, HttpResponse } from '@angu
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../../services/recipe.service';
 import { Cuisine } from '../../models/cuisine';
-import { FoodCategory } from '../../models/food-category';
+import { RecipeCategory } from '../../models/recipe-category';
 import { Ingredient } from '../../models/ingredient';
 import { Observable } from 'rxjs';
 
@@ -20,7 +20,7 @@ export class ComplexRecipeAddComponent implements OnInit {
   private _searched: boolean = false;
 
   private _ingredients: Ingredient[];
-  private _foodCategories: FoodCategory[];
+  private _foodCategories: RecipeCategory[];
   private _cuisines: Cuisine[];
   private _searchText: string;
   private _dataset = ['Alma', 'körte', 'dió', 'csirke', 'hurka', 'disznó', 'annanász'];
@@ -107,7 +107,7 @@ export class ComplexRecipeAddComponent implements OnInit {
     this._stepsAddContainer = stepsAddContainer;
   }
 
-  set foodCategories(foodCategories: FoodCategory[]){
+  set foodCategories(foodCategories: RecipeCategory[]){
     this._foodCategories = foodCategories;
   }
 
@@ -174,7 +174,7 @@ export class ComplexRecipeAddComponent implements OnInit {
   public getFoodCategories(): void {
     if (!this._searched) {
       this.recipeService.getFoodCategory().subscribe(
-      (response: FoodCategory[]) => {
+      (response: RecipeCategory[]) => {
         this._foodCategories = response;
       },
       (error: HttpErrorResponse) => {

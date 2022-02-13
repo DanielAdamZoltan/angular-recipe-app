@@ -4,8 +4,9 @@ import { environment } from 'src/environments/environment';
 import { RecipeCard } from '../components/recipe/recipeCard';
 import {Observable} from 'rxjs';
 import { Ingredient } from '../models/ingredient';
-import { FoodCategory } from '../models/food-category';
+import { RecipeCategory } from '../models/recipe-category';
 import { Cuisine } from '../models/cuisine';
+import { Recipe } from '../models/recipe';
 
 @Injectable({ providedIn: 'root'})
 export class RecipeService {
@@ -25,12 +26,14 @@ export class RecipeService {
     return this.http.request(request);
   }
 
+
+
   getFiles(): Observable<any> {
     return this.http.get(`${this.apiServerUrl}/files`);
   }
 
-  public getFoodCategory(): Observable<FoodCategory[]>{
-    return this.http.get<FoodCategory[]>(`${this.apiServerUrl}/category/all`);
+  public getFoodCategory(): Observable<RecipeCategory[]>{
+    return this.http.get<RecipeCategory[]>(`${this.apiServerUrl}/category/all`);
   }
 
   public getCuisin(): Observable<Cuisine[]>{
@@ -58,5 +61,11 @@ export class RecipeService {
   // public deleteUser(userId: number): Observable<void>{
   //     return this.http.delete<void>(`${this.apiServerUrl}/user/delete/${userId}`);
   // }
+
+  public addRecipe(recipe: Recipe): Observable<Recipe>{
+    return this.http.post<Recipe>(`${this.apiServerUrl}/recipe/add`, recipe);
+}
+
+
 
 }
