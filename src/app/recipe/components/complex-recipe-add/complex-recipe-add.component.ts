@@ -6,6 +6,7 @@ import { RecipeCategory } from '../../models/recipe-category';
 import { Ingredient } from '../../models/ingredient';
 import { Observable } from 'rxjs';
 import { Recipe } from '../../models/recipe';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-complex-recipe-add',
@@ -199,6 +200,24 @@ export class ComplexRecipeAddComponent implements OnInit {
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
+      }
+    )
+  }
+
+  public onAddUser(addForm: NgForm):void{
+    var field = '#imageUrl';
+    console.log(field);
+    document.getElementById('add-user-form').click();
+    this.recipeService.addRecipe(addForm.value).subscribe(
+      (response: Recipe) => {
+        console.log(response);
+
+        // this.getUsers();
+         addForm.reset();
+      },
+      (error: HttpErrorResponse) =>{
+        alert(error.message);
+        addForm.reset();
       }
     )
   }
