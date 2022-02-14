@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpEvent, HttpRequest} from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { RecipeCard } from '../components/recipe/recipeCard';
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 import { Ingredient } from '../models/ingredient';
 import { RecipeCategory } from '../models/recipe-category';
 import { Cuisine } from '../models/cuisine';
@@ -28,11 +27,11 @@ export class RecipeService {
 
 
 
-  getFiles(): Observable<any> {
+  getFile(): Observable<any> {
     return this.http.get(`${this.apiServerUrl}/files`);
   }
 
-  public getFoodCategory(): Observable<RecipeCategory[]>{
+  public getRecipeCategory(): Observable<RecipeCategory[]>{
     return this.http.get<RecipeCategory[]>(`${this.apiServerUrl}/category/all`);
   }
 
@@ -47,7 +46,7 @@ export class RecipeService {
   // public getRecipeCard(): Observable<RecipeCard[]>{
   //   return this.http.get<RecipeCard[]>(`${this.apiServerUrl}/home/all`);
   // }
-  public getIngredients(): Observable<Ingredient[]>{
+  public getIngredient(): Observable<Ingredient[]>{
     return this.http.get<Ingredient[]>(`${this.apiServerUrl}/ingredients/all`);
 }
   //   public addUser(user: User): Observable<User>{
@@ -61,6 +60,10 @@ export class RecipeService {
   // public deleteUser(userId: number): Observable<void>{
   //     return this.http.delete<void>(`${this.apiServerUrl}/user/delete/${userId}`);
   // }
+
+  public getRecipe(): Observable<Recipe[]>{
+    return this.http.get<Recipe[]>(`${this.apiServerUrl}/recipe/all`);
+}
 
   public addRecipe(recipe: Recipe): Observable<Recipe>{
     return this.http.post<Recipe>(`${this.apiServerUrl}/recipe/add`, recipe);

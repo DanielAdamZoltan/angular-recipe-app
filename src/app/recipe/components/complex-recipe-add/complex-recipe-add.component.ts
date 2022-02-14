@@ -5,6 +5,7 @@ import { Cuisine } from '../../models/cuisine';
 import { RecipeCategory } from '../../models/recipe-category';
 import { Ingredient } from '../../models/ingredient';
 import { Observable } from 'rxjs';
+import { Recipe } from '../../models/recipe';
 
 @Component({
   selector: 'app-complex-recipe-add',
@@ -17,13 +18,13 @@ export class ComplexRecipeAddComponent implements OnInit {
   private _stepsAddContainer:boolean = false;
 
 // lehet több kell belöle tipusonként
-  private _searched: boolean = false;
+  private _searchedIngredient: boolean = false;
 
   private _ingredients: Ingredient[];
-  private _foodCategories: RecipeCategory[];
+  private _recipeCategories: RecipeCategory[];
   private _cuisines: Cuisine[];
+  // private _recipes: Recipe[];
   private _searchText: string;
-  private _dataset = ['Alma', 'körte', 'dió', 'csirke', 'hurka', 'disznó', 'annanász'];
 
   private _selectedFiles: FileList;
   private _currentFile: File;
@@ -34,9 +35,9 @@ export class ComplexRecipeAddComponent implements OnInit {
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit(): void {
-    this.getFoodCategories();
+    this.getRecipeCategories();
     this.getCuisines();
-    this.fileInfos = this.recipeService.getFiles();
+    this.fileInfos = this.recipeService.getFile();
   }
 
   get selectedFiles(){
@@ -71,20 +72,12 @@ export class ComplexRecipeAddComponent implements OnInit {
     return this._cuisines;
   }
 
-  get foodCategories(){
-    return this._foodCategories;
-  }
-
-  get dataset(){
-    return this._dataset;
-  }
-
-  set dataset(dataset){
-    this._dataset = dataset;
+  get recipeCategories(){
+    return this._recipeCategories;
   }
 
   get searched(){
-    return this._searched;
+    return this._searchedIngredient;
   }
 
   get ingredientsAddContainer(){
@@ -95,8 +88,12 @@ export class ComplexRecipeAddComponent implements OnInit {
     return this._stepsAddContainer;
   }
 
+  // get recipe(){
+  //   return this._recipes;
+  // }
+
   set searched(searched: boolean){
-    this._searched = searched;
+    this._searchedIngredient = searched;
   }
 
   set ingredientsAddContainer(ingredientsAddContainer: boolean){
@@ -107,8 +104,8 @@ export class ComplexRecipeAddComponent implements OnInit {
     this._stepsAddContainer = stepsAddContainer;
   }
 
-  set foodCategories(foodCategories: RecipeCategory[]){
-    this._foodCategories = foodCategories;
+  set recipeCategories(foodCategories: RecipeCategory[]){
+    this._recipeCategories = foodCategories;
   }
 
   set cuisines(cuisines: Cuisine[]){
@@ -118,6 +115,10 @@ export class ComplexRecipeAddComponent implements OnInit {
   set ingredients(ingredients: Ingredient[]){
     this._ingredients = ingredients;
   }
+
+  // set recipes(recipes: Recipe[]){
+  //   this._recipes = recipes;
+  // }
 
   set searchText(searchText: string){
     this._searchText = searchText;
@@ -142,8 +143,6 @@ export class ComplexRecipeAddComponent implements OnInit {
   set fileInfos(fileInfos: Observable<any>){
     this._fileInfos = fileInfos;
   }
-
-
   
 
   public selectFile(event: any){
@@ -159,7 +158,7 @@ export class ComplexRecipeAddComponent implements OnInit {
           this.progress = Math.round(100 * event.loaded / event.total);
         } else if (event instanceof HttpResponse) {
           this.message = event.body.message;
-          this.fileInfos = this.recipeService.getFiles();
+          this.fileInfos = this.recipeService.getFile();
         }
       },
       err => {
@@ -171,21 +170,18 @@ export class ComplexRecipeAddComponent implements OnInit {
   }
 
 
-  public getFoodCategories(): void {
-    if (!this._searched) {
-      this.recipeService.getFoodCategory().subscribe(
+  public getRecipeCategories(): void {
+      this.recipeService.getRecipeCategory().subscribe(
       (response: RecipeCategory[]) => {
-        this._foodCategories = response;
+        this._recipeCategories = response;
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
     )
-    }
   }
 
   public getCuisines(): void {
-    if (!this._searched) {
       this.recipeService.getCuisin().subscribe(
       (response: Cuisine[]) => {
         this._cuisines = response;
@@ -194,12 +190,10 @@ export class ComplexRecipeAddComponent implements OnInit {
         alert(error.message);
       }
     )
-    }
   }
 
   public getIngredients(): void {
-    if (!this._searched) {
-      this.recipeService.getIngredients().subscribe(
+      this.recipeService.getIngredient().subscribe(
       (response: Ingredient[]) => {
         this._ingredients = response;
       },
@@ -207,7 +201,6 @@ export class ComplexRecipeAddComponent implements OnInit {
         alert(error.message);
       }
     )
-    }
   }
 
 
@@ -228,9 +221,6 @@ export class ComplexRecipeAddComponent implements OnInit {
     }
    }
     
-    
-  
-
    public hideIngredientsDiv(){
     this._ingredientsAddContainer = false;
   }
@@ -243,28 +233,12 @@ export class ComplexRecipeAddComponent implements OnInit {
     this._stepsAddContainer = false;
   }
 
-  // public getUsers(): void{
-  //   if (!this._searched) {
-  //     this.recipeService.getIngredients().subscribe(
-  //     (response: Ingredients[]) => {
-  //       this._ingredients = response;
-  //     },
-  //     (error: HttpErrorResponse) => {
-  //       alert(error.message);
-  //     }
-  //   )
-  //   }
-    
-  // }
-
-
-
   public searchIngredients(key: string): void {
 
     if (key=='') {
-        this._searched = false;
+        this._searchedIngredient = false;
     }else{
-      this._searched = true;
+      this._searchedIngredient = true;
     }
     const results: Ingredient[] = [];
     for (const ingredients of this._ingredients){
