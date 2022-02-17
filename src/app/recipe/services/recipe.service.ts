@@ -18,7 +18,7 @@ export class RecipeService {
   public upload(file: File): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
     formData.append('file', file);
-    const request = new HttpRequest('POST',`${this.apiServerUrl}/upload`, formData, {
+    const request = new HttpRequest('POST',`${this.apiServerUrl}/recipe/upload`, formData, {
       reportProgress: true,
       responseType: 'json'
     });
