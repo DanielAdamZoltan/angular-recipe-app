@@ -9,7 +9,7 @@ import { HomeComponent } from './home/components/home/home.component';
 import { PageNotFoundComponent } from './page-not-found/components/page-not-found/page-not-found.component';
 import { ComplexRecipeAddComponent } from './recipe/components/complex-recipe-add/complex-recipe-add.component';
 import { RecipeItemComponent } from './recipe/components/recipe-item/recipe-item.component';
-import { RecipeComponent } from './recipe/components/recipe-card/recipe-card.component';
+import { RecipeCardComponent } from './recipe/components/recipe-card/recipe-card.component';
 
 const routes: Routes = [
 
@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: 'belepes', component: LoginComponent},
   {path: 'regisztracio', component: RegisterComponent},
   {path: 'reset-password', component: ResetPasswordComponent},
-  {path: 'receptek', component: RecipeComponent},
+  {path: 'receptek', component: RecipeCardComponent},
 //   {path: 'receptek', component: RecipeModule,
 //   children: [
 //     {

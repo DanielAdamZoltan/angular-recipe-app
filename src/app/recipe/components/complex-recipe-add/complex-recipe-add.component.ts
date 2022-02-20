@@ -1,5 +1,5 @@
 import { HttpErrorResponse, HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { RecipeService } from '../../services/recipe.service';
 import { Cuisine } from '../../models/cuisine';
 import { RecipeCategory } from '../../models/recipe-category';
@@ -7,6 +7,8 @@ import { Ingredient } from '../../models/ingredient';
 import { Observable } from 'rxjs';
 import { Recipe } from '../../models/recipe';
 import { NgForm } from '@angular/forms';
+import { IngredientComponent } from '../ingredient/ingredient.component';
+import { RecipeComponent } from '../recipe/recipe.component';
 
 @Component({
   selector: 'app-complex-recipe-add',
@@ -35,8 +37,15 @@ export class ComplexRecipeAddComponent implements OnInit {
   private _message = '';
   private _fileInfos: Observable<any>;
 
-  constructor(private recipeService: RecipeService) { }
+   @ViewChild('ingredientsContainer', {static: true}) ingredientsContainer:  ElementRef;
 
+@ViewChild(RecipeComponent) recipeComponent: RecipeComponent;
+
+   @ViewChild(IngredientComponent) ingredientTemp: IngredientComponent;
+
+  constructor(private recipeService: RecipeService, private renderer: Renderer2) { }
+
+ 
   ngOnInit(): void {
     this.getRecipeCategories();
     this.getCuisines();
@@ -90,6 +99,10 @@ export class ComplexRecipeAddComponent implements OnInit {
   get stepsAddContainer(){
     return this._stepsAddContainer;
   }
+
+  // get ingredientHtml(){
+  //   return this._ingredientHtml;
+  // }
 
   // get recipe(){
   //   return this._recipes;
@@ -206,14 +219,13 @@ export class ComplexRecipeAddComponent implements OnInit {
     )
   }
 
-  public onAddUser(addForm: NgForm):void{
-    var field = '#imageUrl';
-    console.log(field);
-    document.getElementById('add-user-form').click();
+  public onAddRecipe(addForm: NgForm):void{
+    document.getElementById('add-recipe-form').click();
     this.recipeService.addRecipe(addForm.value).subscribe(
       (response: Recipe) => {
         console.log(response);
 
+        // this.recipeComponent.
         // this.getUsers();
          addForm.reset();
       },
@@ -224,6 +236,46 @@ export class ComplexRecipeAddComponent implements OnInit {
     )
   }
 
+  public addIngredientsContainer(){
+
+    var id: number = 0;
+    const element: HTMLDivElement = this.renderer.createElement('div');
+    element.id = 'ingredients-add-container' + id;
+      id++;
+      element.className = 'ingredients-add-container';
+
+    this._ingredientsAddContainer = true;
+
+    
+  }
+
+  public addIngredientsContainer1(){
+    
+    var id: number = 0;
+    const container = document.getElementById("ingredientsContainer");
+    const ingredientsAddContainer: HTMLDivElement = this.renderer.createElement('div');
+    
+    ingredientsAddContainer.id = 'ingredients-add-container' + id;
+      id++;
+      ingredientsAddContainer.className = 'ingredients-add-container';
+    
+    // const temp = '  <input type="search"       (ngModelChange)="searchIngredients(key.value)" #key="ngModel" ngModel name="key" id="searchIngredients" [(ngModel)]="searchText"          class="form-control mr-sm-2" aria-describedby="ingredientText"           placeholder="Alapanyagok" required>      <br>      <div class="search-result">        <ul *ngFor="let ingredient of ingredients">          <li>{{ingredient.name}}</li>        </ul>      </div>      <div class="unit">      <input type="number" class="form-control" id="ingredient-input-number" aria-describedby="ingredientNumber" placeholder="mennyiség" style="width: 50%;">          <select class="form-select form-select-sm" id="ingredient-input-select" aria-label=".form-select-sm example" style="width: 50%;">            <option selected>Mértékegység</option>            <option value="g">g</option>            <option value="dkg">dkg</option>            <option value="kg">kg</option>            <option value="ml">l</option>            <option value="dl">ml</option>            <option value="l">dl</option>            <option value="csipet">csipet</option>            <option value="késhegynyi">késhegynyi</option>            <option value="kávéskanál">kávéskanál</option>            <option value="teáskanál">teáskanál</option>            <option value="evőkanál">evőkanál</option>            <option value="csepp">csepp</option>            <option value="izlés szerint">izlés szerint</option>          </select>        </div>        <br>        <button (click)="hideIngredientsDiv()">          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>          </svg>        </button> ';
+    ingredientsAddContainer.innerHTML = ' <input type="search"       (ngModelChange)="searchIngredients(key.value)" #key="ngModel" ngModel name="key" id="searchIngredients" [(ngModel)]="searchText"          class="form-control mr-sm-2" aria-describedby="ingredientText"           placeholder="Alapanyagok" required>      <br>      <div class="search-result">        <ul *ngFor="let ingredient of ingredients">          <li>{{ingredient.name}}</li>        </ul>      </div>      <div class="unit">      <input type="number" class="form-control" id="ingredient-input-number" aria-describedby="ingredientNumber" placeholder="mennyiség" style="width: 50%;">          <select class="form-select form-select-sm" id="ingredient-input-select" aria-label=".form-select-sm example" style="width: 50%;">            <option selected>Mértékegység</option>            <option value="g">g</option>            <option value="dkg">dkg</option>            <option value="kg">kg</option>            <option value="ml">l</option>            <option value="dl">ml</option>            <option value="l">dl</option>            <option value="csipet">csipet</option>            <option value="késhegynyi">késhegynyi</option>            <option value="kávéskanál">kávéskanál</option>            <option value="teáskanál">teáskanál</option>            <option value="evőkanál">evőkanál</option>            <option value="csepp">csepp</option>            <option value="izlés szerint">izlés szerint</option>          </select>        </div>        <br>        <button id="deleteIngredientDiv" onclick="deleteIngredientsContainer()">          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>          </svg>        </button>';
+    // element.innerHTML = 
+    // element.append(temp);
+    // element.innerHTML = 
+    this.renderer.appendChild(this.ingredientsContainer.nativeElement,ingredientsAddContainer);
+    // container?.appendChild(element);
+    
+    
+    
+  }
+
+  public deleteIngredientsContainer(){
+    const container = document.getElementById("ingredients-add-container0");
+    container.remove;
+    console.log("its working");
+  }
 
   public addIngredientsDiv(){
     this._ingredientsAddContainer = true;
@@ -272,16 +324,22 @@ export class ComplexRecipeAddComponent implements OnInit {
 
 
 
-   public addIngredientsDiv1(counter: number): void{
-     var piece: number = 0;
+   public addIngredientsDiv1(): void{
+     
+    var counter: number = 0;
      
        const container = document.getElementById("ingredients-container");
+      //  const div = document.createElement('div')
+      // const valami: string;
       var temp = '  <div class="ingredients-add-container" id="ingredients-add-container" *ngIf="ingredientsAddContainer">     <input type="search"       (ngModelChange)="searchIngredients(key.value)" #key="ngModel" ngModel name="key" id="searchIngredients" [(ngModel)]="searchText"          class="form-control mr-sm-2" aria-describedby="ingredientText"           placeholder="Alapanyagok" required>      <br>      <div class="search-result">        <ul *ngFor="let ingredient of ingredients">          <li>{{ingredient.name}}</li>        </ul>      </div>      <div class="unit">      <input type="number" class="form-control" id="ingredient-input-number" aria-describedby="ingredientNumber" placeholder="mennyiség" style="width: 50%;">          <select class="form-select form-select-sm" id="ingredient-input-select" aria-label=".form-select-sm example" style="width: 50%;">            <option selected>Mértékegység</option>            <option value="g">g</option>            <option value="dkg">dkg</option>            <option value="kg">kg</option>            <option value="ml">l</option>            <option value="dl">ml</option>            <option value="l">dl</option>            <option value="csipet">csipet</option>            <option value="késhegynyi">késhegynyi</option>            <option value="kávéskanál">kávéskanál</option>            <option value="teáskanál">teáskanál</option>            <option value="evőkanál">evőkanál</option>            <option value="csepp">csepp</option>            <option value="izlés szerint">izlés szerint</option>          </select>        </div>        <br>        <button (click)="hideIngredientsDiv()">          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>          </svg>        </button>    </div>';     
       
-       $scope.element = document.createElement(temp);
-      
+       const element = document.createElement(temp);
+      //  element.
+       counter++;
+      // div.id='';
+      // div.className='';
       container?.appendChild(element);
-      piece++;
+      
      
      
      

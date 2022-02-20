@@ -8,7 +8,7 @@ import { Recipe } from '../../models/recipe';
   templateUrl: './recipe-card.component.html',
   styleUrls: ['./recipe-card.component.css']
 })
-export class RecipeComponent implements OnInit {
+export class RecipeCardComponent implements OnInit {
 
   private _recipes: Recipe[];
   private _searchedRecipe: boolean = false;

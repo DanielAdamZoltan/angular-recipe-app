@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { RecipeItemComponent } from './components/recipe-item/recipe-item.component';
-import { RecipeComponent } from './components/recipe-card/recipe-card.component';
+import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
 
 
 const routes: Routes = [
