@@ -58,6 +58,7 @@ body{
     text-decoration: none;
 }
 #data-protection-container{
+    /* left: 20%; */
     width: 40%;
 }
 .chechbox{
@@ -65,4 +66,18 @@ body{
 }
 .text{
     display: inline-block;
+}
+
+#register-container{
+    left: 5%;
+}
+
+#password-repeate-container{
+    left: 50%;  
+    padding-top: -5%;  
+}
+
+#password-show-container{
+    left: 50%;
+    /* padding-bottom: 60%; */
 }

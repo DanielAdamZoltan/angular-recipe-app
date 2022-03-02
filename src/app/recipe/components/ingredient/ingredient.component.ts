@@ -68,3 +68,28 @@ export class IngredientComponent implements OnInit {
   
 
 }
+
+
+
+
+
+
+
+// import { Component, ElementRef } from '@angular/core';
+
+// @Component({
+//   selector: 'smart-input',
+//   template: `
+//     <div [ngSwitch]="type">
+//       <input type="text" *ngSwitchCase="'text'" />
+//       <input type="number" *ngSwitchCase="'number'" />
+//       <p *ngSwitchDefault>Unsupported type: {{ type }}</p>
+//     </div>
+//   `
+// })
+// export class SmartInputComponent {
+//   type: string;
+//   constructor(private elementRef: ElementRef) {
+//     this.type = this.elementRef.nativeElement.getAttribute('type');
+//   }
+// }

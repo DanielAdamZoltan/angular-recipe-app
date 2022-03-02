@@ -1,6 +1,21 @@
+<script>
+    $(document).ready(function(){
+  
+  $('#btn-check-password-show').on('click', function(){
+     var regPassword=$("#reg-password");
+     if(regPassword.attr('type')==='password')
+       {
+        regPassword.attr('type','text');
+     }else{
+        regPassword.attr('type','password');
+     }
+ })
+})
+</script>
+
 <div class="register-body">
 
-<div class="col-md-6 pt-5 pt-sm-3">
+<div class="col-md-6 pt-5 pt-sm-3" id="register-container">
     <h2 class="h4 mb-3">Nincs fiókja? Regisztráljon!</h2>
     <p class="text-muted mb-4">A regisztráció kevesebb mint egy percet vesz igénybe, de teljes ellenőrzést biztosít receptjei felett.</p>
     <form class="needs-validation" novalidate="">
@@ -34,49 +49,61 @@
                     <label for="reg-password">Jelszó</label>
                     <input class="form-control" type="password" required="" id="reg-password">
                     <div class="invalid-feedback">Kérjük, írja be a jelszót!</div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label for="reg-password-confirm">Jelszó Megerősítése</label>
-                    <input class="form-control" type="password" required="" id="reg-password-confirm">
-                    <div class="invalid-feedback">A jelszavak nem egyeznek!</div>
                     <div class="information">Legalább 8 karaktert használjon, és szerepeljenek köztük betűk, számok és szimbólumok is</div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6" id="password-repeate-container">
                 <div class="form-group">
-                    <input type="checkbox" class="btn-check" id="btn-check-breakfast" autocomplete="off">
-                    <label class="btn btn-outline-success" for="btn-check-breakfast">Jelszó megjelenítése</label>
+                    <label for="reg-password-confirm">Jelszó Megerősítése</label>
+                    <input class="form-control" type="password" required="" id="reg-password">
+                    <div class="invalid-feedback">A jelszavak nem egyeznek!</div>
+                   
+                </div>
+            </div>
+            <div class="col-sm-6" id="password-show-container">
+                <div class="form-group">
+                    <input type="checkbox" class="btn-check" id="btn-check-password-show" autocomplete="off">
+                    <label class="btn btn-outline-success" for="btn-check-password-show">Jelszó megjelenítése</label>
                 </div>
             </div>
             
         </div>
         <div class="row" id="data-protection-container">
             <!-- <div class="chechbox-terms"> -->
-                <input type="checkbox" class="chechbox">
             <!-- </div> -->
             <!-- <div class="text-terms"> -->
-                <p class="text">
-                    <span>Elolvastam és a regisztrációval elfogadom a </span>
-                    <a href="/felhasznalasi-feltetelek" class="data-protection"><strong>Felhasználási feltételeket</strong> </a>
-                </p>
+                <!-- <p class="text"> -->
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">
+                            Elolvastam és a regisztrációval elfogadom a 
+                            <a href="/felhasznalasi-feltetelek" class="data-protection"
+                            ><strong>Felhasználási feltételeket</strong> </a>
+                        </label>
+                      </div>
+                    
+                <!-- </p> -->
                 <!-- </div> -->
         </div>
         <div class="row"  id="data-protection-container">
             <!-- <div class="chechbox-privacy"> -->
-                <input type="checkbox" class="chechbox1">
+                <!-- <input required type="checkbox" class="chechbox1"> -->
             <!-- </div> -->
             <!-- <div class="text-privacy"> -->
-                <p class="text1">
-                    <span>A honlapra történő regisztrációval elfogadom az </span>
-                    <a href="adatvedelmi-szabalyzat" class="data-protection"><strong>Adatvédelmi szabályzatot</strong></a>
-                </p>
+                <!-- <p class="text1"> -->
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">
+                            A honlapra történő regisztrációval elfogadom az 
+                            <a href="adatvedelmi-szabalyzat" class="data-protection"><strong>Adatvédelmi szabályzatot</strong></a>
+                        </label>
+                      </div>
+                <!-- </p> -->
                 <!-- </div> -->
         </div>
-        <div class="text-left">
+        <!-- <div class="text-left">
             <button class="btn btn-secondary" type="button">Bejelentkezés</button>
-        </div>
+        </div> -->
         <div class="text-right">
             <button class="btn btn-primary" type="submit">Regisztráció</button>
         </div>
