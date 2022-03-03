@@ -1,6 +1,6 @@
 import { HttpErrorResponse, HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, OnInit, Renderer2, ViewChild, ElementRef } from '@angular/core';
-import { RecipeService } from '../../services/recipe.service';
+import { RecipeService } from '../../../services/recipe.service';
 import { Cuisine } from '../../models/cuisine';
 import { RecipeCategory } from '../../models/recipe-category';
 import { Ingredient } from '../../models/ingredient';

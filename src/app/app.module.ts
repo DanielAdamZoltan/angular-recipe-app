@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-// import { FormsModule } from '@angular/forms';  
+import { FormsModule } from '@angular/forms';  
 
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
@@ -24,7 +24,7 @@ import { RecipeModule } from './recipe/recipe.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    // FormsModule,
+    FormsModule,
     // AuthModule,
     // RecipeModule,
     // DataProtectionModule,

@@ -1,1 +1,155 @@
-<p>home works!</p>
+<!-- Cards div -->
+<div class="container" id="main-container">
+    <div class="row">
+      <div *ngFor="let user of users" class="col-md-6 col-xl-3">
+         <div class="card m-b-30">
+            <div class="card-body row">
+               <div class="col-6 card-title align-self-center mb-0">
+                  <h5>{{user?.email}}</h5>
+                  <p class="m-0">{{user?.role}}</p>
+               </div>
+            </div>
+            <ul class="list-group list-group-flush">
+               <li class="list-group-item"><i class="fa fa-envelope float-right"></i>First Name: {{user?.firstName}}</li>
+               <li class="list-group-item"><i class="fa fa-phone float-right"></i>Last Name: {{user?.lastName}}</li>
+            </ul>
+            <div class="card-body">
+               <div class="float-right btn-group btn-group-sm">
+                  <a (click)="onOpenModal(user,'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                  <a (click)="onOpenModal(user,'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+               </div>
+            </div>
+         </div>
+      </div>
+    </div>
+  
+    <!-- Add User Modal -->
+  <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddUser(addForm)">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" ngModel name="email" maxlength="50" class="form-control" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" ngModel name="firstName" maxlength="20" class="form-control" id="firstName" placeholder="First Name" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" ngModel name="lastName" maxlength="20" class="form-control" id="lastName" placeholder="Last Name" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="text" ngModel name="password" maxlength="60" class="form-control" id="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+              <label for="matchingPassword">Repeate Password</label>
+              <input type="text" ngModel name="matchingPassword" maxlength="60" class="form-control" id="matchingPassword" placeholder="Repeate Password" required>
+            </div>
+          
+        
+        <div class="modal-footer">
+          <button type="button" id="add-user-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button [disabled]="addForm.invalid" type="submit"  class="btn btn-primary" >Save changes</button>
+        </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- <div class="alert alert-danger" role="alert" *ngIf="imageUrl.errors?.maxlength">
+    The Image URL maximum text size is 128 characters!
+  </div>  -->
+  
+    <!-- Update User Modal -->
+    <div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog" aria-labelledby="userEditModalLabel" aria-hidden="true">0
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit User {{editUser?.firstName}} {{editUser?.lastName}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form #editForm="ngForm">
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" maxlength="50" ngModel="{{editUser?.email}}" name="email"
+                 class="form-control" id="email" placeholder="Email">
+              </div>
+              <input type="hidden" ngModel="{{editUser?.id}}" name="id" class="form-control" id="id" placeholder="Id">
+              
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text"
+                ngModel="{{editUser?.firstName}}" maxlength="20" name="firstName"
+                 class="form-control" id="firstName" placeholder="First Name">
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text"
+                ngModel="{{editUser?.lastName}}" maxlength="20" name="lastName"
+                 class="form-control" id="lastName" placeholder="Last Name">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text"
+                ngModel="{{editUser?.password}}" maxlength="60" name="password"
+                 class="form-control" id="password" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="matchingPassword">Repeate Password</label>
+                <input type="text"
+                ngModel="{{editUser?.matchingPassword}}"  maxlength="60" name="matchingPassword"
+                 class="form-control" id="matchingPassword" placeholder="Repeate Password">
+              </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button (click)="onUpdateUser(editForm.value)" data-dismiss="modal" class="btn btn-primary">Save changes</button>
+          </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Delete User Modal -->
+  <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Delete User</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want delete user {{deleteUser?.firstName}} {{deleteUser?.lastName}}?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+          <button (click)="onDeleteUser(deleteUser?.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- Notification for no employees -->
+  <div *ngIf="users?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+    <div class="alert alert-info" role="alert">
+      <h4 class="alert-heading">NO EMPLOYEES!</h4>
+      <p>No Employees were found.</p>
+    </div>
+    </div>
