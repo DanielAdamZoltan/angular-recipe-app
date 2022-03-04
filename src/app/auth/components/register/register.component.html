@@ -1,18 +1,3 @@
-<script>
-    $(document).ready(function(){
-  
-  $('#btn-check-password-show').on('click', function(){
-     var regPassword=$("#reg-password");
-     if(regPassword.attr('type')==='password')
-       {
-        regPassword.attr('type','text');
-     }else{
-        regPassword.attr('type','password');
-     }
- })
-})
-</script>
-
 <div class="register-body">
 
 <div class="col-md-6 pt-5 pt-sm-3" id="register-container">
@@ -21,41 +6,41 @@
     <form class="needs-validation" novalidate="">
         <div class="row">
             
-            <div class="col-sm-6">
+            <div class="col-sm-6" id="first-name-container">
                 <div class="form-group">
-                    <label for="reg-ln">Vezeték Név</label>
-                    <input class="form-control" type="text" required="" id="reg-ln">
-                    <div class="invalid-feedback">Kérem írja be a vezeték nevét!</div>
+                    <label for="firstName">Vezetéknév</label>
+                    <input class="form-control" type="text" required="" id="firstName" name="firstName" placeholder="Vezetéknév">
+                    <div class="invalid-feedback">Kérem írja be a vezetéknevét!</div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6" id="last-name-container">
                 <div class="form-group">
-                    <label for="reg-ln">Kereszt Név</label>
-                    <input class="form-control" type="text" required="" id="reg-ln">
-                    <div class="invalid-feedback">Kérem írja be a kereszt nevét!</div>
+                    <label for="lastName">Keresztnév</label>
+                    <input class="form-control" type="text" required="" id="lastName" name="lastName" placeholder="Keresztnév">
+                    <div class="invalid-feedback">Kérem írja be a keresztnevét!</div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6" id="email-container">
                 <div class="form-group">
-                    <label for="reg-email">E-mail cím</label>
-                    <input class="form-control" type="email" required="" id="reg-email">
+                    <label for="email">E-mail cím</label>
+                    <input class="form-control" type="email" required="" id="email" name="email" placeholder="valami@valami.hu">
                     <div class="invalid-feedback">Kérjük, érvényes e-mail címet adjon meg!</div>
                     <div class="information">Betűket, számokat és pontokat használhat</div>
                 </div>
             </div>
             
-            <div class="col-sm-6">
+            <div class="col-sm-6" id="password-container">
                 <div class="form-group">
-                    <label for="reg-password">Jelszó</label>
-                    <input class="form-control" type="password" required="" id="reg-password">
+                    <label for="password">Jelszó</label>
+                    <input class="form-control" type="password" required="" id="password" name="password" placeholder="Jelszó">
                     <div class="invalid-feedback">Kérjük, írja be a jelszót!</div>
-                    <div class="information">Legalább 8 karaktert használjon, és szerepeljenek köztük betűk, számok és szimbólumok is</div>
+                    <div class="information">Legalább 8 karaktert használjon, és szerepeljenek köztük kis és nagy betűk, számok és szimbólumok is</div>
                 </div>
             </div>
             <div class="col-sm-6" id="password-repeate-container">
                 <div class="form-group">
-                    <label for="reg-password-confirm">Jelszó Megerősítése</label>
-                    <input class="form-control" type="password" required="" id="reg-password">
+                    <label for="password-repeate">Jelszó megerősítése</label>
+                    <input class="form-control" type="password" required="" id="password-repeate" name="password-repeate" placeholder="Jelszó megerősítése">
                     <div class="invalid-feedback">A jelszavak nem egyeznek!</div>
                    
                 </div>
