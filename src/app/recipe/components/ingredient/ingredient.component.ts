@@ -13,7 +13,9 @@ export class IngredientComponent implements OnInit {
   private _ingredients: Ingredient[];
   private _searchedIngredient: boolean = false;
 
-  constructor(private recipeService: RecipeService) { }
+  constructor() { }
+
+  // constructor(private recipeService: RecipeService) { }
 
 
 
@@ -28,16 +30,16 @@ export class IngredientComponent implements OnInit {
     this._ingredients = ingredients;
   }
 
-  public getIngredients(): void {
-    this.recipeService.getIngredient().subscribe(
-    (response: Ingredient[]) => {
-      this._ingredients = response;
-    },
-    (error: HttpErrorResponse) => {
-      alert(error.message);
-    }
-  )
-}
+//   public getIngredients(): void {
+//     this.recipeService.getIngredient().subscribe(
+//     (response: Ingredient[]) => {
+//       this._ingredients = response;
+//     },
+//     (error: HttpErrorResponse) => {
+//       alert(error.message);
+//     }
+//   )
+// }
 
   public searchIngredients(key: string): void {
 
@@ -58,12 +60,14 @@ export class IngredientComponent implements OnInit {
     }
     this._ingredients = results;
     if (results.length === 0 || !key) {
-        this.getIngredients();
+        // this.getIngredients();
     }
   }
 
   public deleteIngredients(){
-    
+    const container = document.getElementById("ingredients-add-container0");
+    container.remove;
+    console.log("its working");
   }
   
 

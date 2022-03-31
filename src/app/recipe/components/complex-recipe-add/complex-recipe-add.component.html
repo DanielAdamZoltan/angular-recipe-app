@@ -159,12 +159,15 @@
     <br>
 
     <!-- <div #ingredientsContainer *ngIf="ingredientsAddContainer"></div> -->
-    <div #ingredientsContainer>
-      <!-- <app-ingredient></app-ingredient> -->
+    <div id="ingredient-container" *ngIf="display">
+      <app-ingredient></app-ingredient>
     </div>
 
+    
+
     <div class="ingredients-add-button" >
-      <button  type="button" (click)="addIngredientsContainer1()">
+      <!--  -->
+      <button  type="button" (click)="addIngredientsContainer()"  >
         
         <span style="padding-right: 5px;">Hozzávaló hozzáadása</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">

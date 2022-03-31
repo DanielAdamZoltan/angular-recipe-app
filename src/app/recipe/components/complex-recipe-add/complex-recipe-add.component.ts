@@ -17,6 +17,10 @@ import { RecipeComponent } from '../recipe/recipe.component';
 })
 export class ComplexRecipeAddComponent implements OnInit {
 
+  display = false;
+
+  private _ingredientArray: Ingredient[];
+
   private _ingredientsAddContainer:boolean = false;
   private _stepsAddContainer:boolean = false;
 
@@ -50,6 +54,10 @@ export class ComplexRecipeAddComponent implements OnInit {
     this.getRecipeCategories();
     this.getCuisines();
     this.fileInfos = this.recipeService.getFile();
+  }
+
+  get ingredientArray(){
+    return this._ingredientArray;
   }
 
   get selectedFiles(){
@@ -238,14 +246,26 @@ export class ComplexRecipeAddComponent implements OnInit {
 
   public addIngredientsContainer(){
 
-    var id: number = 0;
-    const element: HTMLDivElement = this.renderer.createElement('div');
-    element.id = 'ingredients-add-container' + id;
-      id++;
-      element.className = 'ingredients-add-container';
+    this.display = true;
+    
+    // const ingredient = IngredientComponent;
+    // const container = document.getElementById('ingredientsContainer');
+    // container.appendChild(ingredient.arguments);
+    // console.log("siker");
+    // var id: number = 0;
+    // const element: HTMLDivElement = this.renderer.createElement('div');
+    // element.id = 'ingredients-add-container' + id;
+    //   id++;
+    //   element.className = 'ingredients-add-container';
 
-    this._ingredientsAddContainer = true;
+    // this._ingredientsAddContainer = true;
 
+    // const ingredientsAddContainer: HTMLDivElement = this.renderer.createElement('div');
+    
+    // var id: number = 0;
+    // ingredientsAddContainer.id = 'ingredients-add-container' + id;
+    //   id++;
+    //   ingredientsAddContainer.className = 'ingredients-add-container';
     
   }
 
