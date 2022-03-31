@@ -17,6 +17,11 @@ import { RecipeComponent } from '../recipe/recipe.component';
 })
 export class ComplexRecipeAddComponent implements OnInit {
 
+  
+
+
+  ingredient: IngredientComponent;
+
   display = false;
 
   private _ingredientArray: Ingredient[];
@@ -43,11 +48,15 @@ export class ComplexRecipeAddComponent implements OnInit {
 
    @ViewChild('ingredientsContainer', {static: true}) ingredientsContainer:  ElementRef;
 
-@ViewChild(RecipeComponent) recipeComponent: RecipeComponent;
+
+
+   @ViewChild(RecipeComponent) recipeComponent: RecipeComponent;
 
    @ViewChild(IngredientComponent) ingredientTemp: IngredientComponent;
 
-  constructor(private recipeService: RecipeService, private renderer: Renderer2) { }
+  constructor(private recipeService: RecipeService, private renderer: Renderer2) { 
+    
+  }
 
  
   ngOnInit(): void {
@@ -227,6 +236,10 @@ export class ComplexRecipeAddComponent implements OnInit {
     )
   }
 
+  public deleteIngredients() {
+
+  }
+
   public onAddRecipe(addForm: NgForm):void{
     document.getElementById('add-recipe-form').click();
     this.recipeService.addRecipe(addForm.value).subscribe(
@@ -273,6 +286,10 @@ export class ComplexRecipeAddComponent implements OnInit {
     
     var id: number = 0;
     const container = document.getElementById("ingredientsContainer");
+
+    const temp1 = this.ingredient.getHtmlContent();
+
+    const temp = ' <input type="search"       (ngModelChange)="searchIngredients(key.value)" #key="ngModel" ngModel name="key" id="searchIngredients" [(ngModel)]="searchText"          class="form-control mr-sm-2" aria-describedby="ingredientText"           placeholder="Alapanyagok" required>      <br>      <div class="search-result">        <ul *ngFor="let ingredient of ingredients">          <li>{{ingredient.name}}</li>        </ul>      </div>      <div class="unit">      <input type="number" class="form-control" id="ingredient-input-number" aria-describedby="ingredientNumber" placeholder="mennyiség" style="width: 50%;">          <select class="form-select form-select-sm" id="ingredient-input-select" aria-label=".form-select-sm example" style="width: 50%;">            <option selected>Mértékegység</option>            <option value="g">g</option>            <option value="dkg">dkg</option>            <option value="kg">kg</option>            <option value="ml">l</option>            <option value="dl">ml</option>            <option value="l">dl</option>            <option value="csipet">csipet</option>            <option value="késhegynyi">késhegynyi</option>            <option value="kávéskanál">kávéskanál</option>            <option value="teáskanál">teáskanál</option>            <option value="evőkanál">evőkanál</option>            <option value="csepp">csepp</option>            <option value="izlés szerint">izlés szerint</option>          </select>        </div>        <br>        <button id="deleteIngredientDiv" onclick="deleteIngredientsContainer()">          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>          </svg>        </button>';
     const ingredientsAddContainer: HTMLDivElement = this.renderer.createElement('div');
     
     ingredientsAddContainer.id = 'ingredients-add-container' + id;
@@ -280,15 +297,22 @@ export class ComplexRecipeAddComponent implements OnInit {
       ingredientsAddContainer.className = 'ingredients-add-container';
     
     // const temp = '  <input type="search"       (ngModelChange)="searchIngredients(key.value)" #key="ngModel" ngModel name="key" id="searchIngredients" [(ngModel)]="searchText"          class="form-control mr-sm-2" aria-describedby="ingredientText"           placeholder="Alapanyagok" required>      <br>      <div class="search-result">        <ul *ngFor="let ingredient of ingredients">          <li>{{ingredient.name}}</li>        </ul>      </div>      <div class="unit">      <input type="number" class="form-control" id="ingredient-input-number" aria-describedby="ingredientNumber" placeholder="mennyiség" style="width: 50%;">          <select class="form-select form-select-sm" id="ingredient-input-select" aria-label=".form-select-sm example" style="width: 50%;">            <option selected>Mértékegység</option>            <option value="g">g</option>            <option value="dkg">dkg</option>            <option value="kg">kg</option>            <option value="ml">l</option>            <option value="dl">ml</option>            <option value="l">dl</option>            <option value="csipet">csipet</option>            <option value="késhegynyi">késhegynyi</option>            <option value="kávéskanál">kávéskanál</option>            <option value="teáskanál">teáskanál</option>            <option value="evőkanál">evőkanál</option>            <option value="csepp">csepp</option>            <option value="izlés szerint">izlés szerint</option>          </select>        </div>        <br>        <button (click)="hideIngredientsDiv()">          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>          </svg>        </button> ';
-    ingredientsAddContainer.innerHTML = ' <input type="search"       (ngModelChange)="searchIngredients(key.value)" #key="ngModel" ngModel name="key" id="searchIngredients" [(ngModel)]="searchText"          class="form-control mr-sm-2" aria-describedby="ingredientText"           placeholder="Alapanyagok" required>      <br>      <div class="search-result">        <ul *ngFor="let ingredient of ingredients">          <li>{{ingredient.name}}</li>        </ul>      </div>      <div class="unit">      <input type="number" class="form-control" id="ingredient-input-number" aria-describedby="ingredientNumber" placeholder="mennyiség" style="width: 50%;">          <select class="form-select form-select-sm" id="ingredient-input-select" aria-label=".form-select-sm example" style="width: 50%;">            <option selected>Mértékegység</option>            <option value="g">g</option>            <option value="dkg">dkg</option>            <option value="kg">kg</option>            <option value="ml">l</option>            <option value="dl">ml</option>            <option value="l">dl</option>            <option value="csipet">csipet</option>            <option value="késhegynyi">késhegynyi</option>            <option value="kávéskanál">kávéskanál</option>            <option value="teáskanál">teáskanál</option>            <option value="evőkanál">evőkanál</option>            <option value="csepp">csepp</option>            <option value="izlés szerint">izlés szerint</option>          </select>        </div>        <br>        <button id="deleteIngredientDiv" onclick="deleteIngredientsContainer()">          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>          </svg>        </button>';
+    ingredientsAddContainer.innerHTML = temp1;
+    // ingredientsAddContainer.innerHTML = '<app-ingredient></app-ingredient>';
+    // ingredientsAddContainer.innerHTML = ' <input type="search"       (ngModelChange)="searchIngredients(key.value)" #key="ngModel" ngModel name="key" id="searchIngredients" [(ngModel)]="searchText"          class="form-control mr-sm-2" aria-describedby="ingredientText"           placeholder="Alapanyagok" required>      <br>      <div class="search-result">        <ul *ngFor="let ingredient of ingredients">          <li>{{ingredient.name}}</li>        </ul>      </div>      <div class="unit">      <input type="number" class="form-control" id="ingredient-input-number" aria-describedby="ingredientNumber" placeholder="mennyiség" style="width: 50%;">          <select class="form-select form-select-sm" id="ingredient-input-select" aria-label=".form-select-sm example" style="width: 50%;">            <option selected>Mértékegység</option>            <option value="g">g</option>            <option value="dkg">dkg</option>            <option value="kg">kg</option>            <option value="ml">l</option>            <option value="dl">ml</option>            <option value="l">dl</option>            <option value="csipet">csipet</option>            <option value="késhegynyi">késhegynyi</option>            <option value="kávéskanál">kávéskanál</option>            <option value="teáskanál">teáskanál</option>            <option value="evőkanál">evőkanál</option>            <option value="csepp">csepp</option>            <option value="izlés szerint">izlés szerint</option>          </select>        </div>        <br>        <button id="deleteIngredientDiv" onclick="deleteIngredientsContainer()">          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>          </svg>        </button>';
     // element.innerHTML = 
     // element.append(temp);
     // element.innerHTML = 
     this.renderer.appendChild(this.ingredientsContainer.nativeElement,ingredientsAddContainer);
+    // this.renderer.appendChild()
     // container?.appendChild(element);
     
     
     
+  }
+
+  public addIngredientsContainer2(){
+
   }
 
   public deleteIngredientsContainer(){

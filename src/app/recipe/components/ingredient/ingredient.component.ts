@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Ingredient } from '../../models/ingredient';
 import { RecipeService } from '../../../services/recipe.service';
 
@@ -10,16 +10,21 @@ import { RecipeService } from '../../../services/recipe.service';
 })
 export class IngredientComponent implements OnInit {
 
+  elRef: ElementRef;
+
   private _ingredients: Ingredient[];
   private _searchedIngredient: boolean = false;
 
-  constructor() { }
+  constructor(elRef: ElementRef) {
+    this.elRef = elRef;
+  }
 
   // constructor(private recipeService: RecipeService) { }
 
 
 
   ngOnInit(): void {
+    this.getHtmlContent();
   }
 
   get ingredients(){
@@ -40,6 +45,10 @@ export class IngredientComponent implements OnInit {
 //     }
 //   )
 // }
+
+public getHtmlContent(){
+  return this.elRef.nativeElement.innerHTML;
+}
 
   public searchIngredients(key: string): void {
 
