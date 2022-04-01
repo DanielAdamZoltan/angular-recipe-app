@@ -24,7 +24,7 @@ export class ComplexRecipeAddComponent implements OnInit {
 
   display = false;
 
-  private _ingredientArray: Ingredient[];
+  private _ingredientContainers: Ingredient[];
 
   private _ingredientsAddContainer:boolean = false;
   private _stepsAddContainer:boolean = false;
@@ -65,8 +65,8 @@ export class ComplexRecipeAddComponent implements OnInit {
     this.fileInfos = this.recipeService.getFile();
   }
 
-  get ingredientArray(){
-    return this._ingredientArray;
+  get ingredientContainers(){
+    return this._ingredientContainers;
   }
 
   get selectedFiles(){
